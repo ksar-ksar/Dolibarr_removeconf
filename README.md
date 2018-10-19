@@ -1,11 +1,9 @@
-# REMOVECONF FOR <a href="https://www.dolibarr.org">DOLIBARR ERP CRM</a>
+# REMOVE CONFIRMATION POP-UP FOR <a href="https://www.dolibarr.org">DOLIBARR ERP CRM</a>
 
 ## Features
-Description...
+Module that allows admin to remove some confirmation pop-up for all the users. By default nothing is removed, needs to activate removal on module parameters
 
-<!--
-![Screenshot remove_confirm](img/screenshot_remove_confirm.png?raw=true "remove_confirm"){imgmd}
--->
+![Screenshot removeconf](img/removeconf.png "removeconf")
 
 Other modules are available on <a href="https://www.dolistore.com" target="_new">Dolistore.com</a>.
 
@@ -14,17 +12,6 @@ Other modules are available on <a href="https://www.dolistore.com" target="_new"
 ### Translations
 
 Translations can be define manually by editing files into directories [langs](langs). 
-
-<!--
-This module contains also a sample configuration for Transifex, under the hidden directory [.tx](.tx), so it is possible to manage translation using this service. 
-
-For more informations, see the [translator's documentation](https://wiki.dolibarr.org/index.php/Translator_documentation).
-
-There is a [Transifex project](https://transifex.com/projects/p/dolibarr-module-template) for this module.
--->
-
-
-<!--
 
 Install
 -------
@@ -62,11 +49,11 @@ Note: If this screen tell you there is no custom directory, check your setup is 
         
 ### From a GIT repository
 
-- Clone the repository in ```$dolibarr_main_document_root_alt/remove_confirm```
+- Clone the repository in ```$dolibarr_main_document_root_alt/removeconf```
 
 ```sh
 cd ....../custom
-git clone git@github.com:gitlogin/remove_confirm.git remove_confirm
+git clone git@github.com:gitlogin/removeconf.git removeconf
 ```
 
 ### <a name="final_steps"></a>Final steps
@@ -76,10 +63,6 @@ From your browser:
   - Log into Dolibarr as a super-administrator
   - Go to "Setup" -> "Modules"
   - You should now be able to find and enable the module
-
-
-
--->
 
 
 Licenses
@@ -97,4 +80,3 @@ See [COPYING](COPYING) for more information.
 
 All texts and readmes.
 
-![GFDL logo](img/gfdl.png)

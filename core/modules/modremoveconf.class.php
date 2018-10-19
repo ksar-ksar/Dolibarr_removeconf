@@ -66,7 +66,7 @@ class modremoveconf extends DolibarrModules
 		// Module description, used if translation string 'ModuleremoveconfDesc' not found (MyModue is name of module).
 		$this->description = "Remove the confirmation pop-up";
 		// Used only if file README.md and README-LL.md not found.
-		$this->descriptionlong = "Remove the confirmation pop-up";
+		$this->descriptionlong = "Allows admin to remove some confirmation pop-up for all the users.";
 
 		$this->editor_name = 'ksar';
 		$this->editor_url = '';
@@ -78,7 +78,7 @@ class modremoveconf extends DolibarrModules
 		// Name of image file used for this module.
 		// If file is in theme/yourtheme/img directory under name object_pictovalue.png, use this->picto='pictovalue'
 		// If file is in module/img directory under name object_pictovalue.png, use this->picto='pictovalue@module'
-		$this->picto='generic';
+		$this->picto='removeconf@removeconf';
 
 		// Defined all module parts (triggers, login, substitutions, menus, css, etc...)
 		// for default path (eg: /removeconf/core/xxxxx) (0=disable, 1=enable)
@@ -112,8 +112,8 @@ class modremoveconf extends DolibarrModules
 		$this->conflictwith = array();	// List of module class names as string this module is in conflict with
 		$this->langfiles = array("removeconf@removeconf");
 		$this->phpmin = array(5,3);					// Minimum version of PHP required by module
-		$this->need_dolibarr_version = array(9,0);	// Minimum version of Dolibarr required by module
-		$this->warnings_activation = array('always'='Experimental module, some actions could not be undone if you remove confirmation');                     // Warning to show when we activate module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
+		$this->need_dolibarr_version = array(8,0);	// Minimum version of Dolibarr required by module
+		$this->warnings_activation = array('always'=>'Experimental module, some actions could not be undone if you remove confirmation');                     // Warning to show when we activate module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		$this->warnings_activation_ext = array();                 // Warning to show when we activate an external module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		//$this->automatic_activation = array('FR'=>'removeconfWasAutomaticallyActivatedBecauseOfYourCountryChoice');
 		//$this->always_enabled = true;								// If true, can't be disabled

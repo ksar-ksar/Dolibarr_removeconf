@@ -1,4 +1,4 @@
-# Copyright (C) 2018 SuperAdmin
+# Copyright (C) 2018 ksar <ksar.ksar@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,37 +17,55 @@
 # Generic
 #
 
-# Module label 'Moduleremove_confirmName'
-Moduleremove_confirmName = remove_confirm
-# Module description 'Moduleremove_confirmDesc'
-Moduleremove_confirmDesc = remove_confirm description
+# Module label 'ModuleremoveconfName'
+ModuleremoveconfName = Remove confirmation pop-up
+# Module description 'ModuleremoveconfDesc'
+ModuleremoveconfDesc = Allows admin to remove some confirmation pop-up for all the users.
 
 #
 # Admin page
 #
-remove_confirmSetup = remove_confirm setup
+removeconfSetup = Remove confirmation pop-up setup
 Settings = Settings
-remove_confirmSetupPage = remove_confirm setup page
-REMOVE_CONFIRM_MYPARAM1 = My param 1
-REMOVE_CONFIRM_MYPARAM1Tooltip = My param 1 tooltip
-REMOVE_CONFIRM_MYPARAM2=My param 2
-REMOVE_CONFIRM_MYPARAM2Tooltip=My param 2 tooltip
-
+removeconfSetupPage = Remove confirmation pop-up setup page, you can defined which confirmation pop-up you would like to remove.<br /><br /><strong>Warning : pop-up will be removed for ALL users.</strong><br />
+Propalmodule = Propal Module
+REMOVECONF_P_DELETE = Remove the confirmation on Propal Delete action
+REMOVECONF_P_REOPEN = Remove the confirmation on Propal Re-open action
+REMOVECONF_P_ASK_DELETELINE = Remove the confirmation on Propal Ask Delete Line action
+Ordermodule = Order Module
+REMOVECONF_C_DELETE = Remove the confirmation on Order Delete action
+REMOVECONF_C_VALIDATE = Remove the confirmation on Order Validate action
+REMOVECONF_C_MODIF = Remove the confirmation on Order Modification action
+REMOVECONF_C_SHIPPED = Remove the confirmation on Order Shipped action
+REMOVECONF_C_CANCEL = Remove the confirmation on Order Cancel action
+REMOVECONF_C_ASK_DELETELINE = Remove the confirmation on Order Ask Delete Line action
+Invoicemodule = Invoice Module
+REMOVECONF_F_DELETE = Remove the confirmation on Invoice Delete action
+REMOVECONF_F_VALIDATE = Remove the confirmation on Invoice Validate action
+REMOVECONF_F_MODIF = Remove the confirmation on Invoice Modification action
+REMOVECONF_F_SHIPPED = Remove the confirmation on Invoice Shipped action
+REMOVECONF_F_CANCEL = Remove the confirmation on Invoice Cancel action
+REMOVECONF_F_ASK_DELETELINE = Remove the confirmation on Invoice Ask Delete Line action
+Shipmentmodule = Shipment Module
+REMOVECONF_E_DELETE = Remove the confirmation on Shipment Delete action
+REMOVECONF_E_VALID = Remove the confirmation on Shipment Validate action
+REMOVECONF_E_ANNULER = Remove the confirmation on Shipment Cancel action
+Inventorymodule = Inventory Module
+REMOVECONF_I_DELETE = Remove the confirmation on Inventory Delete action
+Warehousemodule = Warehouse Module
+REMOVECONF_S_DELETE = Remove the confirmation on Warehouse Delete action
+SpModule = Supplier Proposal Module
+REMOVECONF_SP_DELETE = Remove the confirmation on Supplier proposal Delete action
+REMOVECONF_SP_REOPEN = Remove the confirmation on Supplier proposal Reopen action
+REMOVECONF_SP_ASK_DELETELINE = Remove the confirmation on Propal Ask Delete Line action
+WebModule = Website Module
+REMOVECONF_W_DELETE = Remove the confirmation on WebsiteAccount Delete action
 
 #
 # About page
 #
 About = About
-remove_confirmAbout = About remove_confirm
-remove_confirmAboutPage = remove_confirm about page
+removeconfAbout = About remove confirmation pop-up
+removeconfAboutPage = Module that allows admin to remove some confirmation pop-up for all the users.<br /> By default nothing is removed, needs to activate removal on module parameters
+ForAnyQuestions = If you have any question please send an email to 
 
-#
-# Sample page
-#
-MyPageName = My page name
-
-#
-# Sample widget
-#
-MyWidget = My widget
-MyWidgetDescription = My widget description

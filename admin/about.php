@@ -17,9 +17,9 @@
  */
 
 /**
- * \file    remove_confirm/admin/about.php
- * \ingroup remove_confirm
- * \brief   About page of module remove_confirm.
+ * \file    removeconf/admin/about.php
+ * \ingroup removeconf
+ * \brief   About page of module removeconf.
  */
 
 // Load Dolibarr environment
@@ -39,10 +39,9 @@ if (! $res) die("Include of main fails");
 // Libraries
 require_once DOL_DOCUMENT_ROOT.'/core/lib/admin.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
-require_once '../lib/remove_confirm.lib.php';
 
 // Translations
-$langs->loadLangs(array("errors","admin","remove_confirm@remove_confirm"));
+$langs->loadLangs(array("errors","admin","removeconf@removeconf"));
 
 // Access control
 if (! $user->admin) accessforbidden();
@@ -65,21 +64,43 @@ $backtopage = GETPOST('backtopage', 'alpha');
 
 $form = new Form($db);
 
-$page_name = "remove_confirmAbout";
+$page_name = "removeconfAbout";
 llxHeader('', $langs->trans($page_name));
 
 // Subheader
-$linkback = '<a href="'.($backtopage?$backtopage:DOL_URL_ROOT.'/admin/modules.php?restore_lastsearch_values=1').'">'.$langs->trans("BackToModuleList").'</a>';
+$linkback = '<a href="'.(DOL_URL_ROOT.'/admin/modules.php?restore_lastsearch_values=1').'">'.$langs->trans("BackToModuleList").'</a>';
 
-print load_fiche_titre($langs->trans($page_name), $linkback, 'object_remove_confirm@remove_confirm');
+print load_fiche_titre($langs->trans($page_name), $linkback, 'object_removeconf@removeconf');
 
 // Configuration header
-$head = remove_confirmAdminPrepareHead();
-dol_fiche_head($head, 'about', '', 0, 'remove_confirm@remove_confirm');
+$h = 0;
+$head = array();
+$head[$h][0] = dol_buildpath("/removeconf/admin/setup.php", 1);
+$head[$h][1] = $langs->trans("Settings");
+$head[$h][2] = 'settings';
+$h++;
+$head[$h][0] = dol_buildpath("/removeconf/admin/about.php", 1);
+$head[$h][1] = $langs->trans("About");
+$head[$h][2] = 'about';
+$h++;
+dol_fiche_head($head, 'about', '', 0, 'removeconf@removeconf');
 
-dol_include_once('/remove_confirm/core/modules/modremove_confirm.class.php');
-$tmpmodule = new modremove_confirm($db);
-print $tmpmodule->getDescLong();
+print '<br/>';
+print '<div style="float: left; margin-right: 20px;"><img src="../img/removeconf.png" /></div>';
+print '<div>';
+print '<br/><br/>';
+print $langs->trans("removeconfAboutPage");
+print '<br/><br/>'.$langs->trans('ForAnyQuestions').' <a href="mailto:ksar.ksar@gmail.com">ksar.ksar@gmail.com</a>';
+print '<br/><br/><strong>Git : </stong><a href="https://github.com/ksar-ksar/Dolibarr_removeconf">https://github.com/ksar-ksar/Dolibarr_removeconf</a>';
+print '<br/><br/>';
+print '<br/><br/>';
+print '<br/><br/>';
+print '<br/><br/>';
+print '<br/><br/>';
+print '<br/><br/>';
+print '<br/><br/>';
+print '</div>';
+print '<br/><br/>';
 
 // Page end
 dol_fiche_end();

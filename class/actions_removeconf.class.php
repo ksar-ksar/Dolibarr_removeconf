@@ -72,9 +72,6 @@
 															delete		confirm_delete		DeleteWebsiteAccount $_SERVER["PHP_SELF"] . '?id=' . $object->id
 
 															
-															
-	LOG_INFO=6, LOG_DEBUG=7
-	dol_syslog($message, $level = LOG_INFO, $ident = 0, $suffixinfilename='', $restricttologhandler='')
 */
 /**
  * Class Actionsremove_confirm
@@ -141,7 +138,7 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = Propalcard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if ($action == 'delete'){
+			if (($action == 'delete') && ($conf->global->REMOVECONF_P_DELETE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_delete';
@@ -149,7 +146,7 @@ class Actionsremoveconf
 			}
 			
 			//Reopen
-			if ($action == 'reopen'){
+			if (($action == 'reopen') && ($conf->global->REMOVECONF_P_REOPEN)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_reopen';
@@ -157,7 +154,7 @@ class Actionsremoveconf
 			}
 			
 			//ask_deleteline
-			if ($action == 'ask_deleteline'){
+			if (($action == 'ask_deleteline') && ($conf->global->REMOVECONF_P_ASK_DELETELINE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
 					$action_confirm = 'confirm_deleteline';
@@ -171,7 +168,7 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = ordercard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if ($action == 'delete'){
+			if (($action == 'delete') && ($conf->global->REMOVECONF_C_DELETE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_delete';
@@ -179,7 +176,7 @@ class Actionsremoveconf
 			}
 			
 			//Validate
-			if ($action == 'validate'){
+			if (($action == 'validate') && ($conf->global->REMOVECONF_C_VALIDATE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_validate';
@@ -187,7 +184,7 @@ class Actionsremoveconf
 			}
 			
 			//Modif
-			if ($action == 'modif'){
+			if (($action == 'modif') && ($conf->global->REMOVECONF_C_MODIF)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_modif';
@@ -195,7 +192,7 @@ class Actionsremoveconf
 			}
 			
 			//Shipped
-			if ($action == 'shipped'){
+			if (($action == 'shipped') && ($conf->global->REMOVECONF_C_SHIPPED)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_shipped';
@@ -203,7 +200,7 @@ class Actionsremoveconf
 			}
 			
 			//Cancel
-			if ($action == 'cancel'){
+			if (($action == 'cancel') && ($conf->global->REMOVECONF_C_CANCEL)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_cancel';
@@ -211,7 +208,7 @@ class Actionsremoveconf
 			}
 			
 			//ask_deleteline
-			if ($action == 'ask_deleteline'){
+			if (($action == 'ask_deleteline') && ($conf->global->REMOVECONF_C_ASK_DELETELINE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
 					$action_confirm = 'confirm_deleteline';
@@ -225,7 +222,7 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = invoicecard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if ($action == 'delete'){
+			if (($action == 'delete') && ($conf->global->REMOVECONF_F_DELETE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_delete';
@@ -233,7 +230,7 @@ class Actionsremoveconf
 			}
 			
 			//Validate
-			if ($action == 'validate'){
+			if (($action == 'validate') && ($conf->global->REMOVECONF_F_VALIDATE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_validate';
@@ -241,7 +238,7 @@ class Actionsremoveconf
 			}
 			
 			//Modif
-			if ($action == 'modif'){
+			if (($action == 'modif') && ($conf->global->REMOVECONF_F_MODIF)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_modif';
@@ -249,7 +246,7 @@ class Actionsremoveconf
 			}
 			
 			//Shipped
-			if ($action == 'shipped'){
+			if (($action == 'shipped') && ($conf->global->REMOVECONF_F_SHIPPED)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_shipped';
@@ -257,7 +254,7 @@ class Actionsremoveconf
 			}
 			
 			//Cancel
-			if ($action == 'cancel'){
+			if (($action == 'cancel') && ($conf->global->REMOVECONF_F_CANCEL)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_cancel';
@@ -265,7 +262,7 @@ class Actionsremoveconf
 			}
 			
 			//ask_deleteline
-			if ($action == 'ask_deleteline'){
+			if (($action == 'ask_deleteline') && ($conf->global->REMOVECONF_F_ASK_DELETELINE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
 					$action_confirm = 'confirm_deleteline';
@@ -279,7 +276,7 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = expeditioncard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if ($action == 'delete'){
+			if (($action == 'delete') && ($conf->global->REMOVECONF_E_DELETE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_delete';
@@ -287,7 +284,7 @@ class Actionsremoveconf
 			}
 			
 			//Validate
-			if ($action == 'validate'){
+			if (($action == 'validate') && ($conf->global->REMOVECONF_E_VALID)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_validate';
@@ -295,7 +292,7 @@ class Actionsremoveconf
 			}
 			
 			//Cancel
-			if ($action == 'cancel'){
+			if (($action == 'cancel') && ($conf->global->REMOVECONF_E_ANNULER)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_cancel';
@@ -309,7 +306,7 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = inventorycard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if ($action == 'delete'){
+			if (($action == 'delete') && ($conf->global->REMOVECONF_I_DELETE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_delete';
@@ -323,7 +320,7 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = warehousecard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if ($action == 'delete'){
+			if (($action == 'delete') && ($conf->global->REMOVECONF_S_DELETE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_delete';
@@ -337,7 +334,7 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = supplier_proposalcard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if ($action == 'delete'){
+			if (($action == 'delete') && ($conf->global->REMOVECONF_SP_DELETE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_delete';
@@ -345,7 +342,7 @@ class Actionsremoveconf
 			}
 			
 			//Reopen
-			if ($action == 'reopen'){
+			if (($action == 'reopen') && ($conf->global->REMOVECONF_SP_REOPEN)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_reopen';
@@ -353,7 +350,7 @@ class Actionsremoveconf
 			}
 			
 			//ask_deleteline
-			if ($action == 'ask_deleteline'){
+			if (($action == 'ask_deleteline') && ($conf->global->REMOVECONF_SP_ASK_DELETELINE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
 					$action_confirm = 'confirm_deleteline';
@@ -367,7 +364,7 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = websiteaccountcard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if ($action == 'delete'){
+			if (($action == 'delete') && ($conf->global->REMOVECONF_W_DELETE)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 					$action_confirm = 'confirm_delete';
@@ -378,16 +375,15 @@ class Actionsremoveconf
 		if (! $error) {
 			if ($this->results == true){
 				$pageyes=$page.(preg_match('/\?/',$page)?'&':'?').'action='.$action_confirm.'&confirm=yes';
-				$this->resprints = "<script type='text/javascript'>/*Bonjour, voici le lien : document.location.href='".$pageyes."';*/</script>";
+				$this->resprints = "<script type='text/javascript'>document.location.href='".$pageyes."';</script>";
 				dol_syslog(get_class($this).'::page = '.$pageyes, LOG_DEBUG, 1 , '', '');
 				return 1; 
 			}else{
 				$this->results = false;
 				//Debug
-				$this->resprints = 'ça c\'est bien passé mais rien a afficher';
+				//$this->resprints = 'ça c\'est bien passé mais rien a afficher';
 				dol_syslog(get_class($this).'::Nothing to bypass', LOG_DEBUG, 1 , '', '');
-				//Live
-				//$this->resprints = '';
+				$this->resprints = '';
 				return 0;   
 			}
 		} else {
@@ -396,133 +392,4 @@ class Actionsremoveconf
 			return -1;
 		}
 	}
-
-
-	/**
-	 * Overloading the doActions function : replacing the parent's function with the one below
-	 *
-	 * @param   array()         $parameters     Hook metadatas (context, etc...)
-	 * @param   CommonObject    $object         The object to process (an invoice if you are in invoice module, a propale in propale's module, etc...)
-	 * @param   string          $action         Current action (if set). Generally create or edit or null
-	 * @param   HookManager     $hookmanager    Hook manager propagated to allow calling another hook
-	 * @return  int                             < 0 on error, 0 on success, 1 to replace standard code
-	 */
-/*	public function doMassActions($parameters, &$object, &$action, $hookmanager)
-	{
-	    global $conf, $user, $langs;
-
-	    $error = 0; // Error counter
-
-        /* print_r($parameters); print_r($object); echo "action: " . $action; */
-/*	    if (in_array($parameters['currentcontext'], array('somecontext1','somecontext2')))		// do something only for the context 'somecontext1' or 'somecontext2'
-	    {
-	        foreach($parameters['toselect'] as $objectid)
-	        {
-	            // Do action on each object id
-
-	        }
-	    }
-
-	    if (! $error) {
-	        $this->results = array('myreturn' => 999);
-	        $this->resprints = 'A text to show';
-	        return 0;                                    // or return 1 to replace standard code
-	    } else {
-	        $this->errors[] = 'Error message';
-	        return -1;
-	    }
-	}
-
-
-	/**
-	 * Overloading the addMoreMassActions function : replacing the parent's function with the one below
-	 *
-	 * @param   array()         $parameters     Hook metadatas (context, etc...)
-	 * @param   CommonObject    $object         The object to process (an invoice if you are in invoice module, a propale in propale's module, etc...)
-	 * @param   string          $action         Current action (if set). Generally create or edit or null
-	 * @param   HookManager     $hookmanager    Hook manager propagated to allow calling another hook
-	 * @return  int                             < 0 on error, 0 on success, 1 to replace standard code
-	 */
-/*	public function addMoreMassActions($parameters, &$object, &$action, $hookmanager)
-	{
-	    global $conf, $user, $langs;
-
-	    $error = 0; // Error counter
-
-        /* print_r($parameters); print_r($object); echo "action: " . $action; */
-/*	    if (in_array($parameters['currentcontext'], array('somecontext1','somecontext2')))		// do something only for the context 'somecontext1' or 'somecontext2'
-	    {
-	        $this->resprints = '<option value="0"'.($disabled?' disabled="disabled"':'').'>'.$langs->trans("remove_confirmMassAction").'</option>';
-	    }
-
-	    if (! $error) {
-	        return 0;                                    // or return 1 to replace standard code
-	    } else {
-	        $this->errors[] = 'Error message';
-	        return -1;
-	    }
-	}
-
-
-
-	/**
-	 * Execute action
-	 *
-	 * @param	array	$parameters		Array of parameters
-	 * @param   Object	$object		   	Object output on PDF
-	 * @param   string	$action     	'add', 'update', 'view'
-	 * @return  int 		        	<0 if KO,
-	 *                          		=0 if OK but we want to process standard actions too,
-	 *  	                            >0 if OK and we want to replace standard actions.
-	 */
-/*	function beforePDFCreation($parameters, &$object, &$action)
-	{
-		global $langs,$conf;
-		global $hookmanager;
-
-		$outputlangs=$langs;
-
-		$ret=0; $deltemp=array();
-		dol_syslog(get_class($this).'::executeHooks action='.$action);
-
-		/* print_r($parameters); print_r($object); echo "action: " . $action; */
-/*		if (in_array($parameters['currentcontext'], array('somecontext1','somecontext2')))		// do something only for the context 'somecontext1' or 'somecontext2'
-		{
-
-		}
-
-		return $ret;
-	}
-
-	/**
-	 * Execute action
-	 *
-	 * @param	array	$parameters		Array of parameters
-	 * @param   Object	$pdfhandler   	PDF builder handler
-	 * @param   string	$action     	'add', 'update', 'view'
-	 * @return  int 		        	<0 if KO,
-	 *                          		=0 if OK but we want to process standard actions too,
-	 *  	                            >0 if OK and we want to replace standard actions.
-	 */
-/*	function afterPDFCreation($parameters, &$pdfhandler, &$action)
-	{
-		global $langs,$conf;
-		global $hookmanager;
-
-		$outputlangs=$langs;
-
-		$ret=0; $deltemp=array();
-		dol_syslog(get_class($this).'::executeHooks action='.$action);
-
-		/* print_r($parameters); print_r($object); echo "action: " . $action; */
-/*		if (in_array($parameters['currentcontext'], array('somecontext1','somecontext2')))		// do something only for the context 'somecontext1' or 'somecontext2'
-		{
-
-		}
-
-		return $ret;
-	}
-
-	/* Add here any other hooked methods... */
-
 }

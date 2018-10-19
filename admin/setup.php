@@ -1,6 +1,6 @@
 <?php
 /* Copyright (C) 2004-2017 Laurent Destailleur  <eldy@users.sourceforge.net>
- * Copyright (C) 2018 SuperAdmin
+ * Copyright (C) 2018 ksar <ksar.ksar@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,9 +17,9 @@
  */
 
 /**
- * \file    remove_confirm/admin/setup.php
- * \ingroup remove_confirm
- * \brief   remove_confirm setup page.
+ * \file    removeconf/admin/setup.php
+ * \ingroup removeconf
+ * \brief   removeconf setup page.
  */
 
 // Load Dolibarr environment
@@ -40,92 +40,218 @@ global $langs, $user;
 
 // Libraries
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
-require_once '../lib/remove_confirm.lib.php';
+//require_once '../lib/removeconf.lib.php';
 //require_once "../class/myclass.class.php";
 
+function Print_table_header ($title){
+	global $langs ;
+	
+	echo '<table class="noborder" width="100%">';
+	echo '<tr class="liste_titre">';
+	echo '<td><strong>'.$langs->trans($title).'</strong></td>';
+	echo '<td align="center" width="20">&nbsp;</td>';
+	echo '<td align="center" width="100">'.$langs->trans("Value").'</td>'."\n";
+	echo '</tr>';
+}
+
+function Print_row ($constant_var){
+	global $langs, $conf ;
+	
+	echo '<tr class="oddeven">';
+	echo '<td>'.$langs->trans($constant_var).'</td>';
+	echo '<td align="center" width="20">&nbsp;</td>';
+	echo '<td align="center" width="100">';
+	if ($conf->use_javascript_ajax){
+		echo ajax_constantonoff($constant_var);
+	}else{
+		if (empty($conf->global->$constant_var)){
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?action=set_'.$constant_var.'">'.img_picto($langs->trans("Disabled"),'off').'</a>';
+		}else{
+			echo '<a href="'.$_SERVER['PHP_SELF'].'?action=del_'.$constant_var.'">'.img_picto($langs->trans("Enabled"),'on').'</a>';
+		}
+	}
+	echo '</td></tr>';
+}
+
 // Translations
-$langs->loadLangs(array("admin", "remove_confirm@remove_confirm"));
+$langs->loadLangs(array("admin", "removeconf@removeconf"));
 
 // Access control
 if (! $user->admin) accessforbidden();
 
 // Parameters
 $action = GETPOST('action', 'alpha');
-$backtopage = GETPOST('backtopage', 'alpha');
-
-$arrayofparameters=array('REMOVE_CONFIRM_MYPARAM1'=>array('css'=>'minwidth200'), 'REMOVE_CONFIRM_MYPARAM2'=>array('css'=>'minwidth500'));
-
 
 /*
  * Actions
  */
 
-include DOL_DOCUMENT_ROOT.'/core/actions_setmoduleoptions.inc.php';
-
+if (preg_match('/set_([a-z0-9_\-]+)/i',$action,$reg)){
+    $code=$reg[1];
+    if (dolibarr_set_const($db, $code, 1, 'chaine', 0, '', $conf->entity) > 0){
+        header("Location: ".$_SERVER["PHP_SELF"]);
+        exit;
+    }else{
+        dol_echo_error($db);
+    }
+}elseif (preg_match('/del_([a-z0-9_\-]+)/i',$action,$reg)){
+    $code=$reg[1];
+    if (dolibarr_del_const($db, $code, $conf->entity) > 0){
+        header("Location: ".$_SERVER["PHP_SELF"]);
+        exit;
+    }else{
+        dol_echo_error($db);
+    }
+}
 
 /*
  * View
  */
 
-$page_name = "remove_confirmSetup";
+$page_name = "removeconfSetup";
 llxHeader('', $langs->trans($page_name));
 
 // Subheader
-$linkback = '<a href="'.($backtopage?$backtopage:DOL_URL_ROOT.'/admin/modules.php?restore_lastsearch_values=1').'">'.$langs->trans("BackToModuleList").'</a>';
+$linkback = '<a href="'.(DOL_URL_ROOT.'/admin/modules.php?restore_lastsearch_values=1').'">'.$langs->trans("BackToModuleList").'</a>';
 
-print load_fiche_titre($langs->trans($page_name), $linkback, 'object_remove_confirm@remove_confirm');
+echo load_fiche_titre($langs->trans($page_name), $linkback, 'title_setup');
 
 // Configuration header
-$head = remove_confirmAdminPrepareHead();
-dol_fiche_head($head, 'settings', '', -1, "remove_confirm@remove_confirm");
+$h = 0;
+$head = array();
+$head[$h][0] = dol_buildpath("/removeconf/admin/setup.php", 1);
+$head[$h][1] = $langs->trans("Settings");
+$head[$h][2] = 'settings';
+$h++;
+$head[$h][0] = dol_buildpath("/removeconf/admin/about.php", 1);
+$head[$h][1] = $langs->trans("About");
+$head[$h][2] = 'about';
+$h++;
+dol_fiche_head($head, 'settings', '', -1, "removeconf@removeconf");
 
 // Setup page goes here
-echo $langs->trans("remove_confirmSetupPage");
+echo $langs->trans("removeconfSetupPage");
+print '<br/><br/>';
 
+// Propal
+Print_table_header("Propalmodule");
 
-if ($action == 'edit')
-{
-	print '<form method="POST" action="'.$_SERVER["PHP_SELF"].'">';
-	print '<input type="hidden" name="token" value="'.$_SESSION['newtoken'].'">';
-	print '<input type="hidden" name="action" value="update">';
+// Propal Delete
+Print_row("REMOVECONF_P_DELETE");
 
-	print '<table class="noborder" width="100%">';
-	print '<tr class="liste_titre"><td class="titlefield">'.$langs->trans("Parameter").'</td><td>'.$langs->trans("Value").'</td></tr>';
+// Propal Re-Open
+Print_row("REMOVECONF_P_REOPEN");
 
-	foreach($arrayofparameters as $key => $val)
-	{
-		print '<tr class="oddeven"><td>';
-		print $form->textwithpicto($langs->trans($key),$langs->trans($key.'Tooltip'));
-		print '</td><td><input name="'.$key.'"  class="flat '.(empty($val['css'])?'minwidth200':$val['css']).'" value="' . $conf->global->$key . '"></td></tr>';
-	}
+// Propal Ask Delete Line
+Print_row("REMOVECONF_P_ASK_DELETELINE");
 
-	print '</table>';
+echo '</table>';
+echo '<br>';
 
-	print '<br><div class="center">';
-	print '<input class="button" type="submit" value="'.$langs->trans("Save").'">';
-	print '</div>';
+// Order
+Print_table_header("Ordermodule");
 
-	print '</form>';
-	print '<br>';
-}
-else
-{
-	print '<table class="noborder" width="100%">';
-	print '<tr class="liste_titre"><td class="titlefield">'.$langs->trans("Parameter").'</td><td>'.$langs->trans("Value").'</td></tr>';
+// Order Delete
+Print_row("REMOVECONF_C_DELETE");
 
-	foreach($arrayofparameters as $key => $val)
-	{
-		print '<tr class="oddeven"><td>';
-		print $form->textwithpicto($langs->trans($key),$langs->trans($key.'Tooltip'));
-		print '</td><td>' . $conf->global->$key . '</td></tr>';
-	}
+// Order Validate
+Print_row("REMOVECONF_C_VALIDATE");
 
-	print '</table>';
+// Order Modification
+Print_row("REMOVECONF_C_MODIF");
 
-	print '<div class="tabsAction">';
-	print '<a class="butAction" href="'.$_SERVER["PHP_SELF"].'?action=edit">'.$langs->trans("Modify").'</a>';
-	print '</div>';
-}
+// Order Shipped
+Print_row("REMOVECONF_C_SHIPPED");
+
+// Order Cancel
+Print_row("REMOVECONF_C_CANCEL");
+
+// Order Ask Delete Line
+Print_row("REMOVECONF_C_ASK_DELETELINE");
+
+echo '</table>';
+echo '<br>';
+
+// Invoice
+Print_table_header("Invoicemodule");
+
+// Invoice Delete
+Print_row("REMOVECONF_F_DELETE");
+
+// Invoice Validate
+Print_row("REMOVECONF_F_VALIDATE");
+
+// Invoice Modification
+Print_row("REMOVECONF_F_MODIF");
+
+// Invoice Shipped
+Print_row("REMOVECONF_F_SHIPPED");
+
+// Invoice Cancel
+Print_row("REMOVECONF_F_CANCEL");
+
+// Invoice Ask Delete Line
+Print_row("REMOVECONF_F_ASK_DELETELINE");
+
+echo '</table>';
+echo '<br>';
+
+// Shipment
+Print_table_header("Shipmentmodule");
+
+// Shipment Delete
+Print_row("REMOVECONF_E_DELETE");
+
+// Shipment Valid
+Print_row("REMOVECONF_E_VALID");
+
+// Shipment Cancel
+Print_row("REMOVECONF_E_ANNULER");
+
+echo '</table>';
+echo '<br>';
+
+// Inventory
+Print_table_header("Inventorymodule");
+
+// Inventory Delete
+Print_row("REMOVECONF_I_DELETE");
+
+echo '</table>';
+echo '<br>';
+
+// Warehouse
+Print_table_header("Warehousemodule");
+
+// Warehouse Delete
+Print_row("REMOVECONF_S_DELETE");
+
+echo '</table>';
+echo '<br>';
+
+// Supplier Proposal Module
+Print_table_header("SpModule");
+
+// Supplier Proposal Module Delete
+Print_row("REMOVECONF_SP_DELETE");
+
+// Supplier Proposal Module Re-Open
+Print_row("REMOVECONF_SP_REOPEN");
+
+// Supplier Proposal Module Ask delete line
+Print_row("REMOVECONF_SP_ASK_DELETELINE");
+
+echo '</table>';
+echo '<br>';
+
+// WebsiteAccount Module
+Print_table_header("WebModule");
+
+// Supplier WebsiteAccount Delete
+Print_row("REMOVECONF_W_DELETE");
+
+echo '</table>';
+echo '<br>';
 
 
 // Page end
