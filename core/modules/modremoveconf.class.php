@@ -72,7 +72,7 @@ class modremoveconf extends DolibarrModules
 		$this->editor_url = '';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
-		$this->version = 'development';
+		$this->version = '1.0';
 		// Key used in llx_const table to save module status enabled/disabled (where removeconf is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.
@@ -112,7 +112,7 @@ class modremoveconf extends DolibarrModules
 		$this->conflictwith = array();	// List of module class names as string this module is in conflict with
 		$this->langfiles = array("removeconf@removeconf");
 		$this->phpmin = array(5,3);					// Minimum version of PHP required by module
-		$this->need_dolibarr_version = array(8,0);	// Minimum version of Dolibarr required by module
+		$this->need_dolibarr_version = array(9,0);	// Minimum version of Dolibarr required by module
 		$this->warnings_activation = array('always'=>'Experimental module, some actions could not be undone if you remove confirmation');                     // Warning to show when we activate module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		$this->warnings_activation_ext = array();                 // Warning to show when we activate an external module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		//$this->automatic_activation = array('FR'=>'removeconfWasAutomaticallyActivatedBecauseOfYourCountryChoice');
