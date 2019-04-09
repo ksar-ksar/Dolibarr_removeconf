@@ -72,7 +72,7 @@ class modremoveconf extends DolibarrModules
 		$this->editor_url = '';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
-		$this->version = '1.0';
+		$this->version = '1.0.1';
 		// Key used in llx_const table to save module status enabled/disabled (where removeconf is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.
@@ -134,7 +134,7 @@ class modremoveconf extends DolibarrModules
 			7=>array('REMOVECONF_C_CANCEL','chaine',0,'Remove the confirmation on Order Cancel action',0,'current', 1),
 			8=>array('REMOVECONF_C_ASK_DELETELINE','chaine',0,'Remove the confirmation on Order Ask Delete Line action',0,'current', 1),
 			9=>array('REMOVECONF_F_DELETE','chaine',0,'Remove the confirmation on Invoice Delete action',0,'current', 1),
-			10=>array('REMOVECONF_F_VALIDATE','chaine',0,'Remove the confirmation on Invoice Validate action',0,'current', 1),
+			10=>array('REMOVECONF_F_VALID','chaine',0,'Remove the confirmation on Invoice Valid action',0,'current', 1),
 			11=>array('REMOVECONF_F_MODIF','chaine',0,'Remove the confirmation on Invoice Modification action',0,'current', 1),
 			12=>array('REMOVECONF_F_SHIPPED','chaine',0,'Remove the confirmation on Invoice Shipped action',0,'current', 1),
 			13=>array('REMOVECONF_F_CANCEL','chaine',0,'Remove the confirmation on Invoice Cancel action',0,'current', 1),

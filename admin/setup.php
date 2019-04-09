@@ -178,8 +178,8 @@ Print_table_header("Invoicemodule");
 // Invoice Delete
 Print_row("REMOVECONF_F_DELETE");
 
-// Invoice Validate
-Print_row("REMOVECONF_F_VALIDATE");
+// Invoice Valid
+Print_row("REMOVECONF_F_VALID");
 
 // Invoice Modification
 Print_row("REMOVECONF_F_MODIF");

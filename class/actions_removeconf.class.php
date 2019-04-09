@@ -229,12 +229,12 @@ class Actionsremoveconf
 					dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
 			
-			//Validate
-			if (($action == 'validate') && ($conf->global->REMOVECONF_F_VALIDATE)){
+			//Valid
+			if (($action == 'valid') && ($conf->global->REMOVECONF_F_VALID)){
 					$this->results = true;
 					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_validate';
-					dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
+					$action_confirm = 'confirm_valid';
+					dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//Modif
