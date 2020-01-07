@@ -92,7 +92,7 @@ if (preg_match('/set_([a-z0-9_\-]+)/i',$action,$reg)){
         header("Location: ".$_SERVER["PHP_SELF"]);
         exit;
     }else{
-        dol_echo_error($db);
+        dol_print_error($db);
     }
 }elseif (preg_match('/del_([a-z0-9_\-]+)/i',$action,$reg)){
     $code=$reg[1];
@@ -100,7 +100,7 @@ if (preg_match('/set_([a-z0-9_\-]+)/i',$action,$reg)){
         header("Location: ".$_SERVER["PHP_SELF"]);
         exit;
     }else{
-        dol_echo_error($db);
+        dol_print_error($db);
     }
 }
 
