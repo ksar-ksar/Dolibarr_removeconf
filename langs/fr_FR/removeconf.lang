@@ -52,19 +52,19 @@ REMOVECONF_E_VALID = Enlever le pop-up de confirmation pour l'action valider
 REMOVECONF_E_ANNULER = Enlever le pop-up de confirmation pour l'action annuler
 Inventorymodule = Module Inventaire
 REMOVECONF_I_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
-Warehousemodule = Module Entreopt
+Warehousemodule = Module Entrepot
 REMOVECONF_S_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
 SpModule = Module Offre Fournisseur
 REMOVECONF_SP_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
 REMOVECONF_SP_REOPEN = Enlever le pop-up de confirmation pour l'action réouverture
 REMOVECONF_SP_ASK_DELETELINE = Enlever le pop-up de confirmation pour l'action supprimer ligne
 WebModule = Module Site Web
-REMOVECONF_W_DELETE = Remove the confirmation on WebsiteAccount Delete action
+REMOVECONF_W_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
 
 #
 # About page
 #
 About = À propos
 removeconfAbout = À propos du module enlever les pop-up de confirmation 
-removeconfAboutPage = Permet à l'administrateur de désactiver certains pop-up de confirmation pour tous les utilisateurs. <br />Par défaut, aucuns pop-ups n'est supprimé, il faut activer la suppression dans les paraméttres du module.
+removeconfAboutPage = Permet à l'administrateur de désactiver certains pop-up de confirmation pour tous les utilisateurs. <br />Par défaut, aucuns pop-ups n'est supprimé, il faut activer la suppression dans les paramètres du module.
 ForAnyQuestions = Si vous avez des question, envoyer un email à 
