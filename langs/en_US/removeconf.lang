@@ -1,4 +1,4 @@
-# Copyright (C) 2018 ksar <ksar.ksar@gmail.com>
+# Copyright (C) 2018-2020 ksar <ksar.ksar@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -34,14 +34,14 @@ REMOVECONF_P_REOPEN = Remove the confirmation on Propal Re-open action
 REMOVECONF_P_ASK_DELETELINE = Remove the confirmation on Propal Ask Delete Line action
 Ordermodule = Order Module
 REMOVECONF_C_DELETE = Remove the confirmation on Order Delete action
-REMOVECONF_C_VALIDATE = Remove the confirmation on Order Validate action
+REMOVECONF_C_VALIDATE = Remove the confirmation on Order Validate action<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
 REMOVECONF_C_MODIF = Remove the confirmation on Order Modification action
 REMOVECONF_C_SHIPPED = Remove the confirmation on Order Shipped action
 REMOVECONF_C_CANCEL = Remove the confirmation on Order Cancel action
 REMOVECONF_C_ASK_DELETELINE = Remove the confirmation on Order Ask Delete Line action
 Invoicemodule = Invoice Module
 REMOVECONF_F_DELETE = Remove the confirmation on Invoice Delete action
-REMOVECONF_F_VALID = Remove the confirmation on Invoice Valid action
+REMOVECONF_F_VALID = Remove the confirmation on Invoice Valid action<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
 REMOVECONF_F_MODIF = Remove the confirmation on Invoice Modification action
 REMOVECONF_F_SHIPPED = Remove the confirmation on Invoice Shipped action
 REMOVECONF_F_CANCEL = Remove the confirmation on Invoice Cancel action

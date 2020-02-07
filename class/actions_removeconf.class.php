@@ -1,5 +1,5 @@
 <?php
-/* Copyright (C) 2018 ksar <ksar.ksar@gmail.com>
+/* Copyright (C) 2018-2020 ksar <ksar.ksar@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -177,10 +177,30 @@ class Actionsremoveconf
 			
 			//Validate
 			if (($action == 'validate') && ($conf->global->REMOVECONF_C_VALIDATE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_validate';
-					dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
+					$qualified_for_stock_change=0;
+					if (empty($conf->global->STOCK_SUPPORTS_SERVICES))					{
+						$qualified_for_stock_change=$object->hasProductsOrServices(2);
+					}else{
+						$qualified_for_stock_change=$object->hasProductsOrServices(1);
+					}
+
+					if (! empty($conf->stock->enabled) && ! empty($conf->global->STOCK_CALCULATE_ON_VALIDATE_ORDER) && $qualified_for_stock_change)
+					{
+						require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
+						$warehouse = new Entrepot($this->db);
+						$warehouse_array = $warehouse->list_array();
+						if (count($warehouse_array) == 1) {
+							$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&idwarehouse=' . key($warehouse_array);
+							$this->results = true;
+							$action_confirm = 'confirm_validate';
+							dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
+						}
+					}else{
+						$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id ;
+						$this->results = true;
+						$action_confirm = 'confirm_validate';
+						dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
+					}
 			}
 			
 			//Modif
@@ -228,13 +248,32 @@ class Actionsremoveconf
 					$action_confirm = 'confirm_delete';
 					dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
-			
+
 			//Valid
 			if (($action == 'valid') && ($conf->global->REMOVECONF_F_VALID)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_valid';
-					dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
+					$qualified_for_stock_change = 0;
+					if (empty($conf->global->STOCK_SUPPORTS_SERVICES)){
+						$qualified_for_stock_change = $object->hasProductsOrServices(2);
+					}else{
+						$qualified_for_stock_change = $object->hasProductsOrServices(1);
+					}
+
+					if ($qualified_for_stock_change){
+						require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
+						$warehouse = new Entrepot($this->db);
+						$warehouse_array = $warehouse->list_array();
+						if (count($warehouse_array) == 1) {
+							$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&idwarehouse=' . key($warehouse_array);
+							$this->results = true;
+							$action_confirm = 'confirm_valid';
+							dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
+						}
+					}else{
+						$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+						$this->results = true;
+						$action_confirm = 'confirm_valid';
+						dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
+					}
 			}
 			
 			//Modif
