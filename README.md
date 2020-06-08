@@ -1,7 +1,7 @@
 # REMOVE CONFIRMATION POP-UP FOR <a href="https://www.dolibarr.org">DOLIBARR ERP CRM</a>
 
 ## Features
-Module that allows admin to remove some confirmation pop-up for all the users. By default nothing is removed, needs to activate removal on module parameters
+Module that allows admin to remove some confirmation pop-up for selected users. By default nothing is removed, needs to activate user permissions
 
 ![Screenshot removeconf](img/removeconf.png "removeconf")
 

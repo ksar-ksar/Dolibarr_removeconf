@@ -1,6 +1,6 @@
 <?php
 /* Copyright (C) 2004-2017 Laurent Destailleur  <eldy@users.sourceforge.net>
- * Copyright (C) 2018 SuperAdmin
+ * Copyright (C) 2018-2020 ksar <ksar.ksar@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -75,10 +75,6 @@ print load_fiche_titre($langs->trans($page_name), $linkback, 'object_removeconf@
 // Configuration header
 $h = 0;
 $head = array();
-$head[$h][0] = dol_buildpath("/removeconf/admin/setup.php", 1);
-$head[$h][1] = $langs->trans("Settings");
-$head[$h][2] = 'settings';
-$h++;
 $head[$h][0] = dol_buildpath("/removeconf/admin/about.php", 1);
 $head[$h][1] = $langs->trans("About");
 $head[$h][2] = 'about';

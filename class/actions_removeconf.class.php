@@ -1,5 +1,6 @@
 <?php
 /* Copyright (C) 2018-2020 ksar <ksar.ksar@gmail.com>
+ * Copyright (C) 2020-2020 akene <allo@iouston.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -128,9 +129,7 @@ class Actionsremoveconf
 
 		$error = 0; // Error counter
 
-       // print_r($parameters); print_r($object); echo "action: " . $action; 
 	   dol_syslog(get_class($this).'::executeHooks action='.$action);
-
 		
 		//Propal
 		if (strpos($parameters['context'], 'propalcard') !== false){
@@ -138,27 +137,27 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = Propalcard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if (($action == 'delete') && ($conf->global->REMOVECONF_P_DELETE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_delete';
-					dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+			if (($action == 'delete') && ($user->rights->removeconf->propal_delete)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_delete';
+				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//Reopen
-			if (($action == 'reopen') && ($conf->global->REMOVECONF_P_REOPEN)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_reopen';
-					dol_syslog(get_class($this).'::action = reopen', LOG_DEBUG, 1 , '', '');
+			if (($action == 'reopen') && ($user->rights->removeconf->reopen_propale)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_reopen';
+				dol_syslog(get_class($this).'::action = reopen', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//ask_deleteline
-			if (($action == 'ask_deleteline') && ($conf->global->REMOVECONF_P_ASK_DELETELINE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
-					$action_confirm = 'confirm_deleteline';
-					dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
+			if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_propale_line)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+				$action_confirm = 'confirm_deleteline';
+				dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
 			}
 		}
 		
@@ -168,71 +167,71 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = ordercard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if (($action == 'delete') && ($conf->global->REMOVECONF_C_DELETE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_delete';
-					dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+			if (($action == 'delete') && ($user->rights->removeconf->delete_order)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_delete';
+				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//Validate
-			if (($action == 'validate') && ($conf->global->REMOVECONF_C_VALIDATE)){
-					$qualified_for_stock_change=0;
-					if (empty($conf->global->STOCK_SUPPORTS_SERVICES))					{
-						$qualified_for_stock_change=$object->hasProductsOrServices(2);
-					}else{
-						$qualified_for_stock_change=$object->hasProductsOrServices(1);
-					}
+			if (($action == 'validate') && ($user->rights->removeconf->validate_order)){
+				$qualified_for_stock_change=0;
+				if (empty($conf->global->STOCK_SUPPORTS_SERVICES))					{
+					$qualified_for_stock_change=$object->hasProductsOrServices(2);
+				}else{
+					$qualified_for_stock_change=$object->hasProductsOrServices(1);
+				}
 
-					if (! empty($conf->stock->enabled) && ! empty($conf->global->STOCK_CALCULATE_ON_VALIDATE_ORDER) && $qualified_for_stock_change)
-					{
-						require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
-						$warehouse = new Entrepot($this->db);
-						$warehouse_array = $warehouse->list_array();
-						if (count($warehouse_array) == 1) {
-							$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&idwarehouse=' . key($warehouse_array);
-							$this->results = true;
-							$action_confirm = 'confirm_validate';
-							dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
-						}
-					}else{
-						$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id ;
+				if (! empty($conf->stock->enabled) && ! empty($conf->global->STOCK_CALCULATE_ON_VALIDATE_ORDER) && $qualified_for_stock_change)
+				{
+					require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
+					$warehouse = new Entrepot($this->db);
+					$warehouse_array = $warehouse->list_array();
+					if (count($warehouse_array) == 1) {
+						$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&idwarehouse=' . key($warehouse_array);
 						$this->results = true;
 						$action_confirm = 'confirm_validate';
 						dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
 					}
+				}else{
+					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id ;
+					$this->results = true;
+					$action_confirm = 'confirm_validate';
+					dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
+				}
 			}
 			
 			//Modif
-			if (($action == 'modif') && ($conf->global->REMOVECONF_C_MODIF)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_modif';
-					dol_syslog(get_class($this).'::action = modif', LOG_DEBUG, 1 , '', '');
+			if (($action == 'modif') && ($user->rights->removeconf->update_order)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_modif';
+				dol_syslog(get_class($this).'::action = modif', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//Shipped
-			if (($action == 'shipped') && ($conf->global->REMOVECONF_C_SHIPPED)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_shipped';
-					dol_syslog(get_class($this).'::action = shipped', LOG_DEBUG, 1 , '', '');
+			if (($action == 'shipped') && ($user->rights->removeconf->shipping_order)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_shipped';
+				dol_syslog(get_class($this).'::action = shipped', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//Cancel
-			if (($action == 'cancel') && ($conf->global->REMOVECONF_C_CANCEL)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_cancel';
-					dol_syslog(get_class($this).'::action = cancel', LOG_DEBUG, 1 , '', '');
+			if (($action == 'cancel') && ($user->rights->removeconf->cancel_order)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_cancel';
+				dol_syslog(get_class($this).'::action = cancel', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//ask_deleteline
-			if (($action == 'ask_deleteline') && ($conf->global->REMOVECONF_C_ASK_DELETELINE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
-					$action_confirm = 'confirm_deleteline';
-					dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
+			if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_order_line)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+				$action_confirm = 'confirm_deleteline';
+				dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
 			}
 		}
 		
@@ -242,70 +241,70 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = invoicecard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if (($action == 'delete') && ($conf->global->REMOVECONF_F_DELETE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_delete';
-					dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+			if (($action == 'delete') && ($user->rights->removeconf->delete_invoice)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_delete';
+				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
 
 			//Valid
-			if (($action == 'valid') && ($conf->global->REMOVECONF_F_VALID)){
-					$qualified_for_stock_change = 0;
-					if (empty($conf->global->STOCK_SUPPORTS_SERVICES)){
-						$qualified_for_stock_change = $object->hasProductsOrServices(2);
-					}else{
-						$qualified_for_stock_change = $object->hasProductsOrServices(1);
-					}
+			if (($action == 'valid') && ($user->rights->removeconf->validate_invoice)){
+				$qualified_for_stock_change = 0;
+				if (empty($conf->global->STOCK_SUPPORTS_SERVICES)){
+					$qualified_for_stock_change = $object->hasProductsOrServices(2);
+				}else{
+					$qualified_for_stock_change = $object->hasProductsOrServices(1);
+				}
 
-					if ($qualified_for_stock_change){
-						require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
-						$warehouse = new Entrepot($this->db);
-						$warehouse_array = $warehouse->list_array();
-						if (count($warehouse_array) == 1) {
-							$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&idwarehouse=' . key($warehouse_array);
-							$this->results = true;
-							$action_confirm = 'confirm_valid';
-							dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
-						}
-					}else{
-						$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				if ($qualified_for_stock_change){
+					require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
+					$warehouse = new Entrepot($this->db);
+					$warehouse_array = $warehouse->list_array();
+					if (count($warehouse_array) == 1) {
+						$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&idwarehouse=' . key($warehouse_array);
 						$this->results = true;
 						$action_confirm = 'confirm_valid';
 						dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
 					}
+				}else{
+					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+					$this->results = true;
+					$action_confirm = 'confirm_valid';
+					dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
+				}
 			}
 			
 			//Modif
-			if (($action == 'modif') && ($conf->global->REMOVECONF_F_MODIF)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_modif';
-					dol_syslog(get_class($this).'::action = modif', LOG_DEBUG, 1 , '', '');
+			if (($action == 'modif') && ($user->rights->removeconf->update_invoice)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_modif';
+				dol_syslog(get_class($this).'::action = modif', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//Shipped
-			if (($action == 'shipped') && ($conf->global->REMOVECONF_F_SHIPPED)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_shipped';
-					dol_syslog(get_class($this).'::action = shipped', LOG_DEBUG, 1 , '', '');
+			if (($action == 'shipped') && ($user->rights->removeconf->shipping_invoice)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_shipped';
+				dol_syslog(get_class($this).'::action = shipped', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//Cancel
-			if (($action == 'cancel') && ($conf->global->REMOVECONF_F_CANCEL)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_cancel';
-					dol_syslog(get_class($this).'::action = cancel', LOG_DEBUG, 1 , '', '');
+			if (($action == 'cancel') && ($user->rights->removeconf->cancel_invoice)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_cancel';
+				dol_syslog(get_class($this).'::action = cancel', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//ask_deleteline
-			if (($action == 'ask_deleteline') && ($conf->global->REMOVECONF_F_ASK_DELETELINE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
-					$action_confirm = 'confirm_deleteline';
-					dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
+			if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_invoice_line)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+				$action_confirm = 'confirm_deleteline';
+				dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
 			}
 		}
 		
@@ -315,27 +314,27 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = expeditioncard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if (($action == 'delete') && ($conf->global->REMOVECONF_E_DELETE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_delete';
-					dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+			if (($action == 'delete') && ($user->rights->removeconf->delete_shipping)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_delete';
+				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//Validate
-			if (($action == 'validate') && ($conf->global->REMOVECONF_E_VALID)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_validate';
-					dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
+			if (($action == 'validate') && ($conf->global->REMOVECONF_E_VALID) && ($user->rights->removeconf->validate_shipping)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_validate';
+				dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//Cancel
-			if (($action == 'cancel') && ($conf->global->REMOVECONF_E_ANNULER)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_cancel';
-					dol_syslog(get_class($this).'::action = cancel', LOG_DEBUG, 1 , '', '');
+			if (($action == 'cancel') && ($user->rights->removeconf->cancel_shipping)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_cancel';
+				dol_syslog(get_class($this).'::action = cancel', LOG_DEBUG, 1 , '', '');
 			}
 		}
 		
@@ -345,11 +344,11 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = inventorycard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if (($action == 'delete') && ($conf->global->REMOVECONF_I_DELETE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_delete';
-					dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+			if (($action == 'delete') && ($user->rights->removeconf->delete_inventory)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_delete';
+				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
 		}
 		
@@ -359,11 +358,11 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = warehousecard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if (($action == 'delete') && ($conf->global->REMOVECONF_S_DELETE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_delete';
-					dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+			if (($action == 'delete') && ($user->rights->removeconf->delete_warehouse)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_delete';
+				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
 		}
 		
@@ -373,27 +372,27 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = supplier_proposalcard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if (($action == 'delete') && ($conf->global->REMOVECONF_SP_DELETE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_delete';
-					dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+			if (($action == 'delete') && ($user->rights->removeconf->delete_propal_supplier)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_delete';
+				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//Reopen
-			if (($action == 'reopen') && ($conf->global->REMOVECONF_SP_REOPEN)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_reopen';
-					dol_syslog(get_class($this).'::action = reopen', LOG_DEBUG, 1 , '', '');
+			if (($action == 'reopen') && ($user->rights->removeconf->reopen_propal_supplier)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_reopen';
+				dol_syslog(get_class($this).'::action = reopen', LOG_DEBUG, 1 , '', '');
 			}
 			
 			//ask_deleteline
-			if (($action == 'ask_deleteline') && ($conf->global->REMOVECONF_SP_ASK_DELETELINE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
-					$action_confirm = 'confirm_deleteline';
-					dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
+			if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_propal_supplier_line)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+				$action_confirm = 'confirm_deleteline';
+				dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
 			}
 		}
 		
@@ -403,11 +402,11 @@ class Actionsremoveconf
 			dol_syslog(get_class($this).'::Context = websiteaccountcard', LOG_DEBUG, 1 , '', '');
 			
 			//Delete
-			if (($action == 'delete') && ($conf->global->REMOVECONF_W_DELETE)){
-					$this->results = true;
-					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
-					$action_confirm = 'confirm_delete';
-					dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+			if (($action == 'delete') && ($user->rights->removeconf->delete_website)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_delete';
+				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
 			}
 		}
 		
@@ -419,8 +418,6 @@ class Actionsremoveconf
 				return 1; 
 			}else{
 				$this->results = false;
-				//Debug
-				//$this->resprints = 'ça c\'est bien passé mais rien a afficher';
 				dol_syslog(get_class($this).'::Nothing to bypass', LOG_DEBUG, 1 , '', '');
 				$this->resprints = '';
 				return 0;   

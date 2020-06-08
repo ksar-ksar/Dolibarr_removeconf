@@ -1,4 +1,4 @@
-# Copyright (C) 2018 SuperAdmin
+# Copyright (C) 2018-2020 ksar <ksar.ksar@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,51 +20,40 @@
 # Module label 'ModuleremoveconfName'
 ModuleremoveconfName = Enlever les pop-up de confirmation 
 # Module description 'ModuleremoveconfDesc'
-ModuleremoveconfDesc = Permet à l'administrateur de désactiver certains pop-up de confirmation pour tous les utilisateurs
-
-#
-# Page de Configuration
-#
-removeconfSetup = Configuration du module : Enlever les pop-up de confirmation 
-Settings = Configurations
-removeconfSetupPage = Vous pouvez définir quels pop-up seront enlevés.<br /><br /><strong>Attention : Les pop-up sont enlevés pour TOUS les ultilisateurs.</strong><br />
-Propalmodule = Module Proposition Commercial
-REMOVECONF_P_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
-REMOVECONF_P_REOPEN = Enlever le pop-up de confirmation pour l'action réouverture
-REMOVECONF_P_ASK_DELETELINE = Enlever le pop-up de confirmation pour l'action supprimer ligne
-Ordermodule = Module Commande
-REMOVECONF_C_DELETE =  Enlever le pop-up de confirmation pour l'action supprimer
-REMOVECONF_C_VALIDATE =  Enlever le pop-up de confirmation pour l'action valider<br/><b style="color: red">ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé</b>
-REMOVECONF_C_MODIF = Enlever le pop-up de confirmation pour l'action modification
-REMOVECONF_C_SHIPPED = Enlever le pop-up de confirmation pour l'action expédier
-REMOVECONF_C_CANCEL = Enlever le pop-up de confirmation pour l'action annuler
-REMOVECONF_C_ASK_DELETELINE = Enlever le pop-up de confirmation pour l'action supprimer ligne
-Invoicemodule = Module Facture 
-REMOVECONF_F_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
-REMOVECONF_F_VALID = Enlever le pop-up de confirmation pour l'action valider<br/><b style="color: red">ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé</b>
-REMOVECONF_F_MODIF = Enlever le pop-up de confirmation pour l'action modification
-REMOVECONF_F_SHIPPED = Enlever le pop-up de confirmation pour l'action expédier
-REMOVECONF_F_CANCEL = Enlever le pop-up de confirmation pour l'action annuler
-REMOVECONF_F_ASK_DELETELINE = Enlever le pop-up de confirmation pour l'action supprimer ligne
-Shipmentmodule = Module Expedition
-REMOVECONF_E_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
-REMOVECONF_E_VALID = Enlever le pop-up de confirmation pour l'action valider
-REMOVECONF_E_ANNULER = Enlever le pop-up de confirmation pour l'action annuler
-Inventorymodule = Module Inventaire
-REMOVECONF_I_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
-Warehousemodule = Module Entrepot
-REMOVECONF_S_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
-SpModule = Module Offre Fournisseur
-REMOVECONF_SP_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
-REMOVECONF_SP_REOPEN = Enlever le pop-up de confirmation pour l'action réouverture
-REMOVECONF_SP_ASK_DELETELINE = Enlever le pop-up de confirmation pour l'action supprimer ligne
-WebModule = Module Site Web
-REMOVECONF_W_DELETE = Enlever le pop-up de confirmation pour l'action supprimer
+ModuleremoveconfDesc = Permet à l'administrateur de désactiver certains pop-up de confirmation pour les utilisateurs
 
 #
 # About page
 #
 About = À propos
 removeconfAbout = À propos du module enlever les pop-up de confirmation 
-removeconfAboutPage = Permet à l'administrateur de désactiver certains pop-up de confirmation pour tous les utilisateurs. <br />Par défaut, aucuns pop-ups n'est supprimé, il faut activer la suppression dans les paramètres du module.
+removeconfAboutPage = Permet à l'administrateur de désactiver certains pop-up de confirmation pour les utilisateurs. <br />Par défaut, aucuns pop-ups n'est supprimé, il faut activer la suppression dans les permissions des utilisateurs.
 ForAnyQuestions = Si vous avez des question, envoyer un email à 
+
+#
+# Permissions
+#
+Permission5000451 = Supprimer les propales sans confirmation
+Permission5000452 = Réouvrir les propales sans confirmation
+Permission5000453 = Supprimer les lignes de propales sans confirmation
+Permission5000454 = Supprimer les commandes sans confirmation
+Permission5000455 = Valider les commandes sans confirmation<br/><b style="color: red">ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé</b>
+Permission5000456 = Modifier les commandes sans confirmation
+Permission5000457 = Expédier les commandes sans confirmation
+Permission5000458 = Annuler les commandes sans confirmation
+Permission5000459 = Supprimer les lignes de commandes sans confirmation
+Permission5000410 = Supprimer les factures sans confirmation
+Permission5000411 = Valider les factures sans confirmation<br/><b style="color: red">ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé</b>
+Permission5000412 = Modifier les factures sans confirmation
+Permission5000413 = Expédier les factures sans confirmation
+Permission5000414 = Annuler les factures sans confirmation
+Permission5000415 = Supprimer les lignes de facture sans confirmation
+Permission5000416 = Supprimer les expéditions sans confirmation
+Permission5000417 = Valider les expéditions sans confirmation
+Permission5000418 = Annuler les expéditions sans confirmation
+Permission5000419 = Supprimer les inventaires sans confirmation
+Permission5000420 = Supprimer les entreprots sans confirmation
+Permission5000421 = Supprimer les propales fournisseurs sans confirmation
+Permission5000422 = Réouvrir les propales fournisseurs sans confirmation
+Permission5000423 = Supprimer une ligne de propale fournisseur sans confirmation
+Permission5000424 = Supprimer le site web sans confirmation

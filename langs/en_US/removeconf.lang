@@ -20,52 +20,40 @@
 # Module label 'ModuleremoveconfName'
 ModuleremoveconfName = Remove confirmation pop-up
 # Module description 'ModuleremoveconfDesc'
-ModuleremoveconfDesc = Allows admin to remove some confirmation pop-up for all the users.
-
-#
-# Admin page
-#
-removeconfSetup = Remove confirmation pop-up setup
-Settings = Settings
-removeconfSetupPage = Remove confirmation pop-up setup page, you can defined which confirmation pop-up you would like to remove.<br /><br /><strong>Warning : pop-up will be removed for ALL users.</strong><br />
-Propalmodule = Propal Module
-REMOVECONF_P_DELETE = Remove the confirmation on Propal Delete action
-REMOVECONF_P_REOPEN = Remove the confirmation on Propal Re-open action
-REMOVECONF_P_ASK_DELETELINE = Remove the confirmation on Propal Ask Delete Line action
-Ordermodule = Order Module
-REMOVECONF_C_DELETE = Remove the confirmation on Order Delete action
-REMOVECONF_C_VALIDATE = Remove the confirmation on Order Validate action<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
-REMOVECONF_C_MODIF = Remove the confirmation on Order Modification action
-REMOVECONF_C_SHIPPED = Remove the confirmation on Order Shipped action
-REMOVECONF_C_CANCEL = Remove the confirmation on Order Cancel action
-REMOVECONF_C_ASK_DELETELINE = Remove the confirmation on Order Ask Delete Line action
-Invoicemodule = Invoice Module
-REMOVECONF_F_DELETE = Remove the confirmation on Invoice Delete action
-REMOVECONF_F_VALID = Remove the confirmation on Invoice Valid action<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
-REMOVECONF_F_MODIF = Remove the confirmation on Invoice Modification action
-REMOVECONF_F_SHIPPED = Remove the confirmation on Invoice Shipped action
-REMOVECONF_F_CANCEL = Remove the confirmation on Invoice Cancel action
-REMOVECONF_F_ASK_DELETELINE = Remove the confirmation on Invoice Ask Delete Line action
-Shipmentmodule = Shipment Module
-REMOVECONF_E_DELETE = Remove the confirmation on Shipment Delete action
-REMOVECONF_E_VALID = Remove the confirmation on Shipment Validate action
-REMOVECONF_E_ANNULER = Remove the confirmation on Shipment Cancel action
-Inventorymodule = Inventory Module
-REMOVECONF_I_DELETE = Remove the confirmation on Inventory Delete action
-Warehousemodule = Warehouse Module
-REMOVECONF_S_DELETE = Remove the confirmation on Warehouse Delete action
-SpModule = Supplier Proposal Module
-REMOVECONF_SP_DELETE = Remove the confirmation on Supplier proposal Delete action
-REMOVECONF_SP_REOPEN = Remove the confirmation on Supplier proposal Reopen action
-REMOVECONF_SP_ASK_DELETELINE = Remove the confirmation on Propal Ask Delete Line action
-WebModule = Website Module
-REMOVECONF_W_DELETE = Remove the confirmation on WebsiteAccount Delete action
+ModuleremoveconfDesc = Allows admin to remove some confirmation pop-up for the users.
 
 #
 # About page
 #
 About = About
 removeconfAbout = About remove confirmation pop-up
-removeconfAboutPage = Module that allows admin to remove some confirmation pop-up for all the users.<br /> By default nothing is removed, needs to activate removal on module parameters
+removeconfAboutPage = Module that allows admin to remove some confirmation pop-up.<br /> By default nothing is removed, needs to activate removal user permissions
 ForAnyQuestions = If you have any question please send an email to 
 
+#
+# Permissions
+#
+Permission5000451 = Delete Propal without confirmation
+Permission5000452 = Re-open Propal without confirmation
+Permission5000453 = Delete Propal Line without confirmation
+Permission5000454 = Delete Order  without confirmation
+Permission5000455 = Validate Order  without confirmation<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
+Permission5000456 = Modify validated Order without confirmation
+Permission5000457 = Shipp Order without confirmation
+Permission5000458 = Cancel Order without confirmation
+Permission5000459 = Delete Order Line without confirmation
+Permission5000410 = Delete Invoice without confirmation
+Permission5000411 = Valid Invoice without confirmation<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
+Permission5000412 = Modify validated Invoice without confirmation
+Permission5000413 = Shipp Invoice without confirmation
+Permission5000414 = Cancel Invoice without confirmation
+Permission5000415 = Delete Invoice Line without confirmation
+Permission5000416 = Delete Shipment without confirmation
+Permission5000417 = Validate Shipment without confirmation
+Permission5000418 = Cancel Shipment without confirmation
+Permission5000419 = Delete Inventory without confirmation
+Permission5000420 = Delete Warehouse without confirmation
+Permission5000421 = Delete Supplier proposal without confirmation
+Permission5000422 = Re-open Supplier proposal without confirmation
+Permission5000423 = Delete Propal Line without confirmation
+Permission5000424 = Delete WebsiteAccount without confirmation

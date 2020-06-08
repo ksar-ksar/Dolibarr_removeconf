@@ -1,6 +1,7 @@
 <?php
 /* Copyright (C) 2004-2018 Laurent Destailleur  <eldy@users.sourceforge.net>
  * Copyright (C) 2018-2020 ksar <ksar.ksar@gmail.com>
+ * Copyright (C) 2020-2020 akene <allo@iouston.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -50,7 +51,7 @@ class modremoveconf extends DolibarrModules
 
 		// Family can be 'crm','financial','hr','projects','products','ecm','technic','interface','other'
 		// It is used to group modules by family in module setup page
-		$this->family = "other";
+		$this->family = "technic";
 		// Module position in the family on 2 digits ('01', '10', '20', ...)
 		$this->module_position = '90';
 
@@ -65,7 +66,7 @@ class modremoveconf extends DolibarrModules
 		$this->editor_url = '';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
-		$this->version = '1.0.2';
+		$this->version = '2.0.0';
 		// Key used in llx_const table to save module status enabled/disabled (where removeconf is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.
@@ -78,7 +79,7 @@ class modremoveconf extends DolibarrModules
 		$this->dirs = array();
 
 		// Config pages. Put here list of php page, stored into removeconf/admin directory, to use to setup module.
-		$this->config_page_url = array("setup.php@removeconf");
+		$this->config_page_url = array("about.php@removeconf");
 
 		// Dependencies
 		$this->hidden = false;			// A condition to hide module
@@ -88,36 +89,11 @@ class modremoveconf extends DolibarrModules
 		$this->langfiles = array("removeconf@removeconf");
 		$this->phpmin = array(5,3);					// Minimum version of PHP required by module
 		$this->need_dolibarr_version = array(9,0);	// Minimum version of Dolibarr required by module
-		$this->warnings_activation = array('always'=>'Experimental module, some actions could not be undone if you remove confirmation');                     // Warning to show when we activate module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
+		$this->warnings_activation = array();                     // Warning to show when we activate module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		$this->warnings_activation_ext = array();                 // Warning to show when we activate an external module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 
 		// Constants
-		$this->const = array(
-			0=>array('REMOVECONF_P_DELETE','chaine',0,'Remove the confirmation on Propal Delete action',0,'current', 1),
-			1=>array('REMOVECONF_P_REOPEN','chaine',0,'Remove the confirmation on Propal Reopen action',0,'current', 1),
-			2=>array('REMOVECONF_P_ASK_DELETELINE','chaine',0,'Remove the confirmation on Propal Ask Delete Line action',0,'current', 1),
-			3=>array('REMOVECONF_C_DELETE','chaine',0,'Remove the confirmation on Order Delete action',0,'current', 1),
-			4=>array('REMOVECONF_C_VALIDATE','chaine',0,'Remove the confirmation on Order Validate action',0,'current', 1),
-			5=>array('REMOVECONF_C_MODIF','chaine',0,'Remove the confirmation on Order Modification action',0,'current', 1),
-			6=>array('REMOVECONF_C_SHIPPED','chaine',0,'Remove the confirmation on Order Shipped action',0,'current', 1),
-			7=>array('REMOVECONF_C_CANCEL','chaine',0,'Remove the confirmation on Order Cancel action',0,'current', 1),
-			8=>array('REMOVECONF_C_ASK_DELETELINE','chaine',0,'Remove the confirmation on Order Ask Delete Line action',0,'current', 1),
-			9=>array('REMOVECONF_F_DELETE','chaine',0,'Remove the confirmation on Invoice Delete action',0,'current', 1),
-			10=>array('REMOVECONF_F_VALID','chaine',0,'Remove the confirmation on Invoice Valid action',0,'current', 1),
-			11=>array('REMOVECONF_F_MODIF','chaine',0,'Remove the confirmation on Invoice Modification action',0,'current', 1),
-			12=>array('REMOVECONF_F_SHIPPED','chaine',0,'Remove the confirmation on Invoice Shipped action',0,'current', 1),
-			13=>array('REMOVECONF_F_CANCEL','chaine',0,'Remove the confirmation on Invoice Cancel action',0,'current', 1),
-			14=>array('REMOVECONF_F_ASK_DELETELINE','chaine',0,'Remove the confirmation on Invoice Ask Delete Line action',0,'current', 1),
-			15=>array('REMOVECONF_E_DELETE','chaine',0,'Remove the confirmation on Shipment Delete action',0,'current', 1),
-			16=>array('REMOVECONF_E_VALID','chaine',0,'Remove the confirmation on Shipment Validate action',0,'current', 1),
-			17=>array('REMOVECONF_E_ANNULER','chaine',0,'Remove the confirmation on Shipment Cancel action',0,'current', 1),
-			18=>array('REMOVECONF_I_DELETE','chaine',0,'Remove the confirmation on Inventory Delete action',0,'current', 1),
-			19=>array('REMOVECONF_S_DELETE','chaine',0,'Remove the confirmation on Warehouse Delete action',0,'current', 1),
-			20=>array('REMOVECONF_SP_DELETE','chaine',0,'Remove the confirmation on Supplier proposal Delete action',0,'current', 1),
-			21=>array('REMOVECONF_SP_REOPEN','chaine',0,'Remove the confirmation on Supplier proposal Reopen action',0,'current', 1),
-			22=>array('REMOVECONF_SP_ASK_DELETELINE','chaine',0,'Remove the confirmation on Propal Ask Delete Line action',0,'current', 1),
-			23=>array('REMOVECONF_W_DELETE','chaine',0,'Remove the confirmation on WebsiteAccount Delete action',0,'current', 1)
-		);
+		$this->const = array();
 
 
 		if (! isset($conf->removeconf) || ! isset($conf->removeconf->enabled))
@@ -142,7 +118,177 @@ class modremoveconf extends DolibarrModules
 		
 		// Permissions
 		$this->rights = array();		// Permission array used by this module
+		$this->rights_class = $this->name;
 
+		$r = 0;
+		$this->rights[$r][0] = 5000451;
+		$this->rights[$r][1] = 'Supprimer les propales sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'propal_delete';
+        $this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 5000452;
+		$this->rights[$r][1] = 'Réouvrir les propales sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'reopen_propale';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000453;
+		$this->rights[$r][1] = 'Supprimer les lignes de propales sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_propale_line';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000454;
+		$this->rights[$r][1] = 'Supprimer les commandes sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_order';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000455;
+		$this->rights[$r][1] = 'Valider les commandes sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'validate_order';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000456;
+		$this->rights[$r][1] = 'Modifier les commandes sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'update_order';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000457;
+		$this->rights[$r][1] = 'Expédier les commandes sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'shipping_order';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000458;
+		$this->rights[$r][1] = 'Annuler les commandes sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'cancel_order';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000459;
+		$this->rights[$r][1] = 'Supprimer les lignes commandes sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_order_line';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000410;
+		$this->rights[$r][1] = 'Supprimer les factures sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_invoice';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000411;
+		$this->rights[$r][1] = 'Valider les factures sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'validate_invoice';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000412;
+		$this->rights[$r][1] = 'Modifier les factures sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'update_invoice';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000413;
+		$this->rights[$r][1] = 'Expédier les factures sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'shipping_invoice';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000414;
+		$this->rights[$r][1] = 'Annuler les factures sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'cancel_invoice';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000415;
+		$this->rights[$r][1] = 'Supprimer les lignes de facture sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_invoice_line';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000416;
+		$this->rights[$r][1] = 'Supprier les expéditions sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_shipping';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000417;
+		$this->rights[$r][1] = 'Valider les expéditions sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'validate_shipping';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000418;
+		$this->rights[$r][1] = 'Annuler les expéditions sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'cancel_shipping';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000419;
+		$this->rights[$r][1] = 'Supprimer les inventaires sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_inventory';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000420;
+		$this->rights[$r][1] = 'Supprimer les entreprots sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_warehouse';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000421;
+		$this->rights[$r][1] = 'Supprimer les propales fournisseurs sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_propal_supplier';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 5000422;
+		$this->rights[$r][1] = 'Réouvrir les propales fournisseurs sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'reopen_propal_supplier';
+        $this->rights[$r][5] = '';
+    	$r++;
+		$this->rights[$r][0] = 5000423;
+		$this->rights[$r][1] = 'Supprimer une ligne de propale fournisseur sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_propal_supplier_line';
+        $this->rights[$r][5] = '';
+	    $r++;
+		$this->rights[$r][0] = 5000424;
+		$this->rights[$r][1] = 'Supprimer le site web sans confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_website';
+        $this->rights[$r][5] = '';
+		
 		// Main menu entries
 		$this->menu = array();			// List of menus to add
 	}
