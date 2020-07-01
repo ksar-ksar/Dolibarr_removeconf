@@ -33,27 +33,27 @@ ForAnyQuestions = If you have any question please send an email to
 #
 # Permissions
 #
-Permission5000451 = Delete Propal without confirmation
-Permission5000452 = Re-open Propal without confirmation
-Permission5000453 = Delete Propal Line without confirmation
-Permission5000454 = Delete Order  without confirmation
-Permission5000455 = Validate Order  without confirmation<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
-Permission5000456 = Modify validated Order without confirmation
-Permission5000457 = Shipp Order without confirmation
-Permission5000458 = Cancel Order without confirmation
-Permission5000459 = Delete Order Line without confirmation
-Permission5000410 = Delete Invoice without confirmation
-Permission5000411 = Valid Invoice without confirmation<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
-Permission5000412 = Modify validated Invoice without confirmation
-Permission5000413 = Shipp Invoice without confirmation
-Permission5000414 = Cancel Invoice without confirmation
-Permission5000415 = Delete Invoice Line without confirmation
-Permission5000416 = Delete Shipment without confirmation
-Permission5000417 = Validate Shipment without confirmation
-Permission5000418 = Cancel Shipment without confirmation
-Permission5000419 = Delete Inventory without confirmation
-Permission5000420 = Delete Warehouse without confirmation
-Permission5000421 = Delete Supplier proposal without confirmation
-Permission5000422 = Re-open Supplier proposal without confirmation
-Permission5000423 = Delete Propal Line without confirmation
-Permission5000424 = Delete WebsiteAccount without confirmation
+Permission2073001 = Delete Propal without confirmation
+Permission2073002 = Re-open Propal without confirmation
+Permission2073003 = Delete Propal Line without confirmation
+Permission2073004 = Delete Order  without confirmation
+Permission2073005 = Validate Order  without confirmation<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
+Permission2073006 = Modify validated Order without confirmation
+Permission2073007 = Shipp Order without confirmation
+Permission2073008 = Cancel Order without confirmation
+Permission2073009 = Delete Order Line without confirmation
+Permission20730010 = Delete Invoice without confirmation
+Permission20730011 = Valid Invoice without confirmation<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
+Permission20730012 = Modify validated Invoice without confirmation
+Permission20730013 = Shipp Invoice without confirmation
+Permission20730014 = Cancel Invoice without confirmation
+Permission20730015 = Delete Invoice Line without confirmation
+Permission20730016 = Delete Shipment without confirmation
+Permission20730017 = Validate Shipment without confirmation
+Permission20730018 = Cancel Shipment without confirmation
+Permission20730019 = Delete Inventory without confirmation
+Permission20730020 = Delete Warehouse without confirmation
+Permission20730021 = Delete Supplier proposal without confirmation
+Permission20730022 = Re-open Supplier proposal without confirmation
+Permission20730023 = Delete Propal Line without confirmation
+Permission20730024 = Delete WebsiteAccount without confirmation

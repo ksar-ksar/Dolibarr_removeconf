@@ -1,5 +1,8 @@
 # CHANGELOG REMOVECONF FOR <a href="https://www.dolibarr.org">DOLIBARR ERP CRM</a>
 
+## 2.0.1
+Change Module ID
+
 ## 2.0.0
 Thanks to Akene, add user permissions instead of gloabl permission to this module.
 This allows to better control who can  by-pass the confirmation pop-up

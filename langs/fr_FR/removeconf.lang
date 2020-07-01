@@ -33,27 +33,27 @@ ForAnyQuestions = Si vous avez des question, envoyer un email à
 #
 # Permissions
 #
-Permission5000451 = Supprimer les propales sans confirmation
-Permission5000452 = Réouvrir les propales sans confirmation
-Permission5000453 = Supprimer les lignes de propales sans confirmation
-Permission5000454 = Supprimer les commandes sans confirmation
-Permission5000455 = Valider les commandes sans confirmation<br/><b style="color: red">ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé</b>
-Permission5000456 = Modifier les commandes sans confirmation
-Permission5000457 = Expédier les commandes sans confirmation
-Permission5000458 = Annuler les commandes sans confirmation
-Permission5000459 = Supprimer les lignes de commandes sans confirmation
-Permission5000410 = Supprimer les factures sans confirmation
-Permission5000411 = Valider les factures sans confirmation<br/><b style="color: red">ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé</b>
-Permission5000412 = Modifier les factures sans confirmation
-Permission5000413 = Expédier les factures sans confirmation
-Permission5000414 = Annuler les factures sans confirmation
-Permission5000415 = Supprimer les lignes de facture sans confirmation
-Permission5000416 = Supprimer les expéditions sans confirmation
-Permission5000417 = Valider les expéditions sans confirmation
-Permission5000418 = Annuler les expéditions sans confirmation
-Permission5000419 = Supprimer les inventaires sans confirmation
-Permission5000420 = Supprimer les entreprots sans confirmation
-Permission5000421 = Supprimer les propales fournisseurs sans confirmation
-Permission5000422 = Réouvrir les propales fournisseurs sans confirmation
-Permission5000423 = Supprimer une ligne de propale fournisseur sans confirmation
-Permission5000424 = Supprimer le site web sans confirmation
+Permission2073001 = Supprimer les propales sans confirmation
+Permission2073002 = Réouvrir les propales sans confirmation
+Permission2073003 = Supprimer les lignes de propales sans confirmation
+Permission2073004 = Supprimer les commandes sans confirmation
+Permission2073005 = Valider les commandes sans confirmation<br/><b style="color: red">ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé</b>
+Permission2073006 = Modifier les commandes sans confirmation
+Permission2073007 = Expédier les commandes sans confirmation
+Permission2073008 = Annuler les commandes sans confirmation
+Permission2073009 = Supprimer les lignes de commandes sans confirmation
+Permission20730010 = Supprimer les factures sans confirmation
+Permission20730011 = Valider les factures sans confirmation<br/><b style="color: red">ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé</b>
+Permission20730012 = Modifier les factures sans confirmation
+Permission20730013 = Expédier les factures sans confirmation
+Permission20730014 = Annuler les factures sans confirmation
+Permission20730015 = Supprimer les lignes de facture sans confirmation
+Permission20730016 = Supprimer les expéditions sans confirmation
+Permission20730017 = Valider les expéditions sans confirmation
+Permission20730018 = Annuler les expéditions sans confirmation
+Permission20730019 = Supprimer les inventaires sans confirmation
+Permission20730020 = Supprimer les entreprots sans confirmation
+Permission20730021 = Supprimer les propales fournisseurs sans confirmation
+Permission20730022 = Réouvrir les propales fournisseurs sans confirmation
+Permission20730023 = Supprimer une ligne de propale fournisseur sans confirmation
+Permission20730024 = Supprimer le site web sans confirmation
