@@ -1,5 +1,8 @@
 # CHANGELOG REMOVECONF FOR <a href="https://www.dolibarr.org">DOLIBARR ERP CRM</a>
 
+## 2.0.2
+Correct the Expedition Validate
+
 ## 2.0.1
 Change Module ID
 
