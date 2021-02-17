@@ -322,7 +322,7 @@ class Actionsremoveconf
 			}
 			
 			//Valid
-			if (($action == 'valid') && ($conf->global->REMOVECONF_E_VALID) && ($user->rights->removeconf->validate_shipping)){
+			if (($action == 'valid') && ($user->rights->removeconf->validate_shipping)){
 				$this->results = true;
 				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 				$action_confirm = 'confirm_valid';
