@@ -2,6 +2,7 @@
 /* Copyright (C) 2004-2018 Laurent Destailleur  <eldy@users.sourceforge.net>
  * Copyright (C) 2018-2020 ksar <ksar.ksar@gmail.com>
  * Copyright (C) 2020-2020 akene <allo@iouston.com>
+ * Copyright (C) 2021-2021 Erik van Berkum <erikvanberkum@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,7 +46,7 @@ class modremoveconf extends DolibarrModules
         $this->db = $db;
 
 		// Id for module (must be unique).
-		$this->numero = 207300;		
+		$this->numero = 207300;
 		// Key text used to identify module (for permissions, menus, etc...)
 		$this->rights_class = 'removeconf';
 
@@ -66,11 +67,11 @@ class modremoveconf extends DolibarrModules
 		$this->editor_url = 'https://github.com/ksar-ksar/';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
-		$this->version = '2.0.2';
-		
-		// Url to the file with your last numberversion of this module
+		$this->version = '2.1.0';
+
+		// Url to the file with your last number version of this module
 		$this->url_last_version = 'https://raw.githubusercontent.com/ksar-ksar/Dolibarr_removeconf/master/version.txt';
-		
+
 		// Key used in llx_const table to save module status enabled/disabled (where removeconf is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		// Name of image file used for this module.
@@ -82,7 +83,7 @@ class modremoveconf extends DolibarrModules
 		// Data directories to create when module is enabled.
 		$this->dirs = array();
 
-		// Config pages. Put here list of php page, stored into removeconf/admin directory, to use to setup module.
+		// Config pages. Put here list of php page, stored into removeconf/admin directory, to use to set up module.
 		$this->config_page_url = array("about.php@removeconf");
 
 		// Dependencies
@@ -112,14 +113,14 @@ class modremoveconf extends DolibarrModules
 
         // Dictionaries
 		$this->dictionaries=array();
- 
+
         // Boxes/Widgets
         $this->boxes = array();
 
 
 		// Cronjobs (List of cron jobs entries to add when module is enabled)
 		$this->cronjobs = array();
-		
+
 		// Permissions
 		$this->rights = array();		// Permission array used by this module
 		$this->rights_class = $this->name;
@@ -292,7 +293,98 @@ class modremoveconf extends DolibarrModules
 		$this->rights[$r][3] = 0;
 		$this->rights[$r][4] = 'delete_website';
         $this->rights[$r][5] = '';
-		
+		$r++;
+		$this->rights[$r][0] = 20730025;
+		$this->rights[$r][1] = 'Delete BOM without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_bom';
+		$this->rights[$r][5] = '';
+        $r++;
+        $this->rights[$r][0] = 20730026;
+        $this->rights[$r][1] = 'Clone BOM without confirmation';
+        $this->rights[$r][2] = 'r';
+        $this->rights[$r][3] = 0;
+        $this->rights[$r][4] = 'clone_bom';
+        $this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730027;
+		$this->rights[$r][1] = 'Validate BOM without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'validate_bom';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730028;
+		$this->rights[$r][1] = 'Back to draft BOM without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'draft_bom';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730029;
+		$this->rights[$r][1] = 'Disable BOM without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'disable_bom';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730030;
+		$this->rights[$r][1] = 'Reopen BOM without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'reopen_bom';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730031;
+		$this->rights[$r][1] = 'Delete BOM line without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_bom_line';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730032;
+		$this->rights[$r][1] = 'Delete MO without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_mo';
+		$this->rights[$r][5] = '';
+        $r++;
+        $this->rights[$r][0] = 20730033;
+        $this->rights[$r][1] = 'Clone MO without confirmation';
+        $this->rights[$r][2] = 'r';
+        $this->rights[$r][3] = 0;
+        $this->rights[$r][4] = 'clone_mo';
+        $this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730034;
+		$this->rights[$r][1] = 'Validate MO without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'validate_mo';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730035;
+		$this->rights[$r][1] = 'MO Back to draft without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'draft_mo';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730036;
+		$this->rights[$r][1] = 'Reopen MO without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'reopen_mo';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730037;
+		$this->rights[$r][1] = 'Delete MO line without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_mo_line';
+		$this->rights[$r][5] = '';
+
 		// Main menu entries
 		$this->menu = array();			// List of menus to add
 	}
