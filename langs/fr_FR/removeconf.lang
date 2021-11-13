@@ -57,3 +57,18 @@ Permission20730021 = Supprimer les propales fournisseurs sans confirmation
 Permission20730022 = Réouvrir les propales fournisseurs sans confirmation
 Permission20730023 = Supprimer une ligne de propale fournisseur sans confirmation
 Permission20730024 = Supprimer le site web sans confirmation
+
+# google translate from english to france
+Permission20730025 = Supprimer la nomenclature sans confirmation
+Permission20730026 = Cloner la nomenclature sans confirmation
+Permission20730027 = Valider la nomenclature sans confirmation
+Permission20730028 = Retour au brouillon de la nomenclature sans confirmation
+Permission20730029 = Désactiver la nomenclature sans confirmation
+Permission20730030 = Rouvrir la nomenclature sans confirmation
+Permission20730031 = Supprimer la ligne de nomenclature sans confirmation
+Permission20730032 = Supprimer MO sans confirmation
+Permission20730033 = Valider MO sans confirmation
+Permission20730034 = Cloner MO sans confirmation
+Permission20730035 = Retour au brouillon MO sans confirmation
+Permission20730036 = Rouvrir MO sans confirmation
+Permission20730037 = Supprimer la ligne MO sans confirmation

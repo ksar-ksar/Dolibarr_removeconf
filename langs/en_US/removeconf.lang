@@ -1,4 +1,5 @@
 # Copyright (C) 2018-2020 ksar <ksar.ksar@gmail.com>
+# Copyright (C) 2021-2021 Erik van Berkum <erikvanberkum@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,32 +21,32 @@
 # Module label 'ModuleremoveconfName'
 ModuleremoveconfName = Remove confirmation pop-up
 # Module description 'ModuleremoveconfDesc'
-ModuleremoveconfDesc = Allows admin to remove some confirmation pop-up for the users.
+ModuleremoveconfDesc = Allows administrators to remove some confirmation pop-up for users.
 
 #
 # About page
 #
 About = About
 removeconfAbout = About remove confirmation pop-up
-removeconfAboutPage = Module that allows admin to remove some confirmation pop-up.<br /> By default nothing is removed, needs to activate removal user permissions
+removeconfAboutPage = Module that allows administrators to remove some confirmation pop-up.<br /> By default nothing is removed, need to activate removal in user permissions
 ForAnyQuestions = If you have any question please send an email to 
 
 #
 # Permissions
 #
-Permission2073001 = Delete Propal without confirmation
-Permission2073002 = Re-open Propal without confirmation
-Permission2073003 = Delete Propal Line without confirmation
-Permission2073004 = Delete Order  without confirmation
-Permission2073005 = Validate Order  without confirmation<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
+Permission2073001 = Delete Commercial Proposal without confirmation
+Permission2073002 = Re-open Commercial Proposal without confirmation
+Permission2073003 = Delete Commercial Proposal Line without confirmation
+Permission2073004 = Delete Order without confirmation
+Permission2073005 = Validate Order without confirmation<br/> <b style="color: red">WARNING : When using several warehouses, the confirmation form will show</b>
 Permission2073006 = Modify validated Order without confirmation
-Permission2073007 = Shipp Order without confirmation
+Permission2073007 = Ship Order without confirmation
 Permission2073008 = Cancel Order without confirmation
 Permission2073009 = Delete Order Line without confirmation
 Permission20730010 = Delete Invoice without confirmation
-Permission20730011 = Valid Invoice without confirmation<br/> <b style="color: red">WARNING : If you use sevral warehouses it will show anyway the confirmation form</b>
+Permission20730011 = Validate Invoice without confirmation<br/> <b style="color: red">WARNING : When using several warehouses, the confirmation form will show</b>
 Permission20730012 = Modify validated Invoice without confirmation
-Permission20730013 = Shipp Invoice without confirmation
+Permission20730013 = Ship Invoice without confirmation
 Permission20730014 = Cancel Invoice without confirmation
 Permission20730015 = Delete Invoice Line without confirmation
 Permission20730016 = Delete Shipment without confirmation
@@ -55,5 +56,19 @@ Permission20730019 = Delete Inventory without confirmation
 Permission20730020 = Delete Warehouse without confirmation
 Permission20730021 = Delete Supplier proposal without confirmation
 Permission20730022 = Re-open Supplier proposal without confirmation
-Permission20730023 = Delete Propal Line without confirmation
+Permission20730023 = Delete Supplier proposal Line without confirmation
 Permission20730024 = Delete WebsiteAccount without confirmation
+Permission20730025 = Delete BOM without confirmation
+Permission20730026 = Clone BOM without confirmation
+Permission20730027 = Validate BOM without confirmation
+Permission20730028 = Back to draft BOM without confirmation
+Permission20730029 = Disable BOM without confirmation
+Permission20730030 = Reopen BOM without confirmation
+Permission20730031 = Delete BOM line without confirmation
+Permission20730032 = Delete MO without confirmation
+Permission20730033 = Validate MO without confirmation
+Permission20730034 = Clone MO without confirmation
+Permission20730035 = Back to draft MO without confirmation
+Permission20730036 = Reopen MO without confirmation
+Permission20730037 = Delete MO line without confirmation
+
