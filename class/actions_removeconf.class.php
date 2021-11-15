@@ -1,5 +1,5 @@
 <?php
-/* Copyright (C) 2018-2020 ksar <ksar.ksar@gmail.com>
+/* Copyright (C) 2018-2021 ksar <ksar.ksar@gmail.com>
  * Copyright (C) 2020-2020 akene <allo@iouston.com>
  * Copyright (C) 2021-2021 Erik van Berkum <erikvanberkum@gmail.com>
  *
