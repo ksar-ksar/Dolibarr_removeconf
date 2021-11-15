@@ -1,7 +1,7 @@
 # REMOVE CONFIRMATION POP-UP FOR <a href="https://www.dolibarr.org">DOLIBARR ERP CRM</a>
 
 ## Features
-Module that allows admin to remove some confirmation pop-up for selected users. By default nothing is removed, needs to activate user permissions
+Module that allows administrators to remove some confirmation pop-up for selected users. By default nothing is removed, activation must be done in the user permissions under **Remove confirmation pop-up**
 
 ![Screenshot removeconf](img/removeconf.png "removeconf")
 
@@ -18,7 +18,7 @@ Install
 
 ### From the ZIP file and GUI interface
 
-- If you get the module in a zip file (like when downloading it from the market place [Dolistore](https://www.dolistore.com)), go into
+- If you get the module in a zip file (like when downloading it from the marketplace [Dolistore](https://www.dolistore.com)), go into
 menu ```Home - Setup - Modules - Deploy external module``` and upload the zip file.
 
 
@@ -63,8 +63,7 @@ From your browser:
   - Log into Dolibarr as a super-administrator
   - Go to "Setup" -> "Modules"
   - You should now be able to find and enable the module
-
-
+  
 Licenses
 --------
 
