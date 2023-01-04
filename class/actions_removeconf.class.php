@@ -527,6 +527,54 @@ class Actionsremoveconf
             }
         }
 
+        // Purchase order
+        if (strpos($parameters['context'], 'ordersuppliercard') !== false){
+        	dol_syslog(get_class($this).'::Context = ordersuppliercard', LOG_DEBUG, 1 , '', '');
+
+        	// Purchase order Delete
+        	if (($action == 'delete') && ($user->rights->removeconf->delete_purchase_order)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+        		$action_confirm = 'confirm_delete';
+        		dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+        	}
+        	// Purchase order validate and approve
+        	if (($action == 'valid') && ($user->rights->removeconf->validate_purchase_order)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+        		$action_confirm = 'confirm_valid';
+        		dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
+        	}
+        	// Purchase order approve
+        	if (($action == 'approve') && ($user->rights->removeconf->approve_purchase_order)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+        		$action_confirm = 'confirm_approve';
+        		dol_syslog(get_class($this).'::action = approve', LOG_DEBUG, 1 , '', '');
+        	}
+        	// Purchase order refuse
+        	if (($action == 'refuse') && ($user->rights->removeconf->refuse_purchase_order)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+        		$action_confirm = 'confirm_refuse';
+        		dol_syslog(get_class($this).'::action = refuse', LOG_DEBUG, 1 , '', '');
+        	}
+        	// Purchase order cancel
+        	if (($action == 'cancel') && ($user->rights->removeconf->cancel_purchase_order)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+        		$action_confirm = 'confirm_cancel';
+        		dol_syslog(get_class($this).'::action = cancel', LOG_DEBUG, 1 , '', '');
+        	}
+        	// Purchase order delete line
+        	if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_purchase_order_line)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+        		$action_confirm = 'confirm_deleteline';
+        		dol_syslog(get_class($this).'::action = deleteline', LOG_DEBUG, 1 , '', '');
+        	}
+        }
+
 		if (! $error) {
 			if ($this->results == true){
 				$pageyes=$page.(preg_match('/\?/',$page)?'&':'?').'action='.$action_confirm.'&confirm=yes';
