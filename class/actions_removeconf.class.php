@@ -611,7 +611,7 @@ class Actionsremoveconf
 
 		if (! $error) {
 			if ($this->results == true){
-				$pageyes=$page.(preg_match('/\?/',$page)?'&':'?').'action='.$action_confirm.'&confirm=yes';
+				$pageyes=$page.(preg_match('/\?/',$page)?'&':'?').'action='.$action_confirm.'&confirm=yes&token='.urlencode(newToken()).';
 				$this->resprints = "<script type='text/javascript'>document.location.href='".$pageyes."';</script>";
 				dol_syslog(get_class($this).'::page = '.$pageyes, LOG_DEBUG, 1 , '', '');
 				return 1;
