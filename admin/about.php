@@ -86,6 +86,10 @@ print '<div style="float: left; margin-right: 20px;"><img src="../img/removeconf
 print '<div>';
 print '<br/><br/>';
 print $langs->trans("removeconfAboutPage");
+print '<br/>';
+print $langs->trans("removeconfAboutPage2");
+print '<br/>';
+print $langs->trans("removeconfAboutPage3");
 print '<br/><br/>'.$langs->trans('ForAnyQuestions').' <a href="mailto:ksar.ksar@gmail.com">ksar.ksar@gmail.com</a>';
 print '<br/><br/><strong>Git : </stong><a href="https://github.com/ksar-ksar/Dolibarr_removeconf">https://github.com/ksar-ksar/Dolibarr_removeconf</a>';
 print '<br/><br/>';

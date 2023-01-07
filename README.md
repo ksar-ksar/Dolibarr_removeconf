@@ -3,6 +3,8 @@
 ## Features
 Module that allows administrators to remove some confirmation pop-up for selected users. By default nothing is removed, activation must be done in the user permissions under **Remove confirmation pop-up**
 
+Initial idea module done by ksar, enhanced by the Dolibarr community <3
+
 ![Screenshot removeconf](img/removeconf.png "removeconf")
 
 Other modules are available on <a href="https://www.dolistore.com" target="_new">Dolistore.com</a>.

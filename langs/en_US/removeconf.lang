@@ -28,7 +28,9 @@ ModuleremoveconfDesc = Allows administrators to remove some confirmation pop-up 
 #
 About = About
 removeconfAbout = About remove confirmation pop-up
-removeconfAboutPage = Module that allows administrators to remove some confirmation pop-up.<br /> By default nothing is removed, need to activate removal in user permissions <br /> Initial idea module done by ksar, enhanced by the Dolibarr community <3
+removeconfAboutPage = Module that allows administrators to remove some confirmation pop-up.
+removeconfAboutPage2 = By default nothing is removed, need to activate removal in user permissions 
+removeconfAboutPage3 = Initial idea module done by ksar, enhanced by the Dolibarr community <3
 ForAnyQuestions = If you have any question please send an email to 
 
 #
@@ -38,13 +40,13 @@ Permission2073001 = Delete Commercial Proposal without confirmation
 Permission2073002 = Re-open Commercial Proposal without confirmation
 Permission2073003 = Delete Commercial Proposal Line without confirmation
 Permission2073004 = Delete Order without confirmation
-Permission2073005 = Validate Order without confirmation<br/> <b style="color: red">WARNING : When using several warehouses, the confirmation form will show</b>
+Permission2073005 = Validate Order without confirmation <br> WARNING : When using several warehouses, the confirmation form will show
 Permission2073006 = Modify validated Order without confirmation
 Permission2073007 = Ship Order without confirmation
 Permission2073008 = Cancel Order without confirmation
 Permission2073009 = Delete Order Line without confirmation
 Permission20730010 = Delete Invoice without confirmation
-Permission20730011 = Validate Invoice without confirmation<br/> <b style="color: red">WARNING : When using several warehouses, the confirmation form will show</b>
+Permission20730011 = Validate Invoice without confirmation <br> WARNING : When using several warehouses, the confirmation form will show
 Permission20730012 = Modify validated Invoice without confirmation
 Permission20730013 = Ship Invoice without confirmation
 Permission20730014 = Cancel Invoice without confirmation
@@ -73,7 +75,7 @@ Permission20730036 = Reopen MO without confirmation
 Permission20730037 = Delete MO line without confirmation
 Permission20730038 = Delete purchase order without confirmation
 Permission20730039 = Validate and approve purchase order without confirmation
-Permission20730040 = Approve purchase order without confirmationn<br/> <b style="color: red">WARNING : When using several warehouses, the confirmation form will show</b>
+Permission20730040 = Approve purchase order without confirmationn <br> WARNING : When using several warehouses, the confirmation form will show
 Permission20730041 = Refuse purchase order without confirmation
 Permission20730042 = Cancel purchase order without confirmation
 Permission20730043 = Delete a purchase order line without confirmation

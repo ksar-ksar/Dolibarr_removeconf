@@ -27,7 +27,9 @@ ModuleremoveconfDesc = Permet à l'administrateur de désactiver certains pop-up
 #
 About = À propos
 removeconfAbout = À propos du module enlever les pop-up de confirmation 
-removeconfAboutPage = Permet à l'administrateur de désactiver certains pop-up de confirmation pour les utilisateurs. <br />Par défaut, aucuns pop-ups n'est supprimé, il faut activer la suppression dans les permissions des utilisateurs. <br /> Module original crée par ksar, ammélioré par la communautée Dolibarr <3
+removeconfAboutPage = Permet à l'administrateur de désactiver certains pop-up de confirmation pour les utilisateurs.
+removeconfAboutPage2 = Par défaut, aucuns pop-ups n'est supprimé, il faut activer la suppression dans les permissions des utilisateurs. 
+removeconfAboutPage3 = Module original crée par ksar, ammélioré par la communautée Dolibarr <3
 ForAnyQuestions = Si vous avez des question, envoyer un email à 
 
 #
@@ -37,13 +39,13 @@ Permission2073001 = Supprimer les propales sans confirmation
 Permission2073002 = Réouvrir les propales sans confirmation
 Permission2073003 = Supprimer les lignes de propales sans confirmation
 Permission2073004 = Supprimer les commandes sans confirmation
-Permission2073005 = Valider les commandes sans confirmation<br/><b style="color: red">ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé</b>
+Permission2073005 = Valider les commandes sans confirmation <br> ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé
 Permission2073006 = Modifier les commandes sans confirmation
 Permission2073007 = Expédier les commandes sans confirmation
 Permission2073008 = Annuler les commandes sans confirmation
 Permission2073009 = Supprimer les lignes de commandes sans confirmation
 Permission20730010 = Supprimer les factures sans confirmation
-Permission20730011 = Valider les factures sans confirmation<br/><b style="color: red">ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé</b>
+Permission20730011 = Valider les factures sans confirmation <br> ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé
 Permission20730012 = Modifier les factures sans confirmation
 Permission20730013 = Expédier les factures sans confirmation
 Permission20730014 = Annuler les factures sans confirmation
@@ -71,7 +73,7 @@ Permission20730035 = Retour au brouillon pour les ordres de fabrication sans con
 Permission20730036 = Rouvrir les ordres de fabrication sans confirmation
 Permission20730037 = Supprimer les lignes des ordres de fabrication sans confirmation
 Permission20730038 = Supprimer les commandes fournisseurs sans confirmation
-Permission20730039 = Valider et approuver les commandes fournisseurs sans confirmation
+Permission20730039 = Valider et approuver les commandes fournisseurs sans confirmation <br> ATTENTION : Si vous avez plusieurs entrepots, le pop-up de confirmation ne sera pas supprimé
 Permission20730040 = Approuver les commandes fournisseurs sans confirmation
 Permission20730041 = Refuse les commandes fournisseurs sans confirmation
 Permission20730042 = Annuler les commandes fournisseurs sans confirmation
