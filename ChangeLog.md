@@ -1,4 +1,7 @@
 # CHANGELOG REMOVECONF FOR <a href="https://www.dolibarr.org">DOLIBARR ERP CRM</a>
+## 2.2.0
+New Suppress Supplier Order confirmation pop-ups
+
 ## 2.1.0
 New suppress BOM confirmation pop-ups
 New suppress MO confirmation pop-ups

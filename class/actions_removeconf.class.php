@@ -1,7 +1,8 @@
 <?php
-/* Copyright (C) 2018-2021 ksar <ksar.ksar@gmail.com>
- * Copyright (C) 2020-2020 akene <allo@iouston.com>
- * Copyright (C) 2021-2021 Erik van Berkum <erikvanberkum@gmail.com>
+/* Copyright (C) 2018-2023 ksar 				<ksar.ksar@gmail.com>
+ * Copyright (C) 2020-2020 akene 				<allo@iouston.com>
+ * Copyright (C) 2021-2021 Erik van Berkum 		<erikvanberkum@gmail.com>
+ * Copyright (C) 2023 	   Regis Houssin        <regis.houssin@inodbox.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -85,6 +86,16 @@
                                                             setdraft    confirm_setdraft    DraftMO             $_SERVER["PHP_SELF"] . '?id=' . $object->id
                                                             reopen      confirm_reopen      ReopenMO            $_SERVER["PHP_SELF"] . '?id=' . $object->id
                                                             deleteline  confirm_deleteline  DeleteMOine         $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid']
+	fourn\commande\card			ordersuppliercard, globalcard
+															delete		confirm_delete		DeleteOrder			$_SERVER["PHP_SELF"].'?id='.$object->id
+															clone		confirm_clone		WARNING, need to select a third party, not possible to cancel
+															valid		confirm_valid		ValidateOrder		$_SERVER["PHP_SELF"].'?id='.$object->id
+															approve		confirm_approve		ApproveThisOrder	$_SERVER['PHP_SELF']."?id=".$object->id WARNING, if stock enabled, warehouse to be selected,  not possible to cancel
+															approve2	confirm_approve2	ApproveThisOrder	$_SERVER['PHP_SELF']."?id=".$object->id WARNING, if stock enabled, warehouse to be selected,  not possible to cancel
+															refuse		confirm_refuse		DenyingThisOrder	$_SERVER['PHP_SELF']."?id=$object->id" 	WARNING, need to indicate the Reason, Reason will be blank
+															cancel		confirm_cancel		Cancel	$_SERVER['PHP_SELF']."?id=$object->id"	WARNING, need to indicate the Reason, Reason will be blank
+															commande	confirm_commande	WARNING, a lot of things to send by POST, not possible to cancel
+															ask_deleteline	confirm_deleteline	DeleteProductLine $_SERVER["PHP_SELF"].'?id='.$object->id.'&lineid='.$lineid
 
 
 */
@@ -197,7 +208,7 @@ class Actionsremoveconf
 					$qualified_for_stock_change=$object->hasProductsOrServices(1);
 				}
 
-				if (! empty($conf->stock->enabled) && ! empty($conf->global->STOCK_CALCULATE_ON_VALIDATE_ORDER) && $qualified_for_stock_change)
+				if (isModEnabled('stock') && !empty($conf->global->STOCK_CALCULATE_ON_VALIDATE_ORDER) && $qualified_for_stock_change)
 				{
 					require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
 					$warehouse = new Entrepot($this->db);
@@ -426,7 +437,8 @@ class Actionsremoveconf
 
         // BOM
         if (strpos($parameters['context'], 'bomcard') !== false){
-            dol_syslog(get_class($this).'::Context = bomcard', LOG_DEBUG, 1 , '', '');
+            
+			dol_syslog(get_class($this).'::Context = bomcard', LOG_DEBUG, 1 , '', '');
 
             //Bom Delete
             if (($action == 'delete') && ($user->rights->removeconf->delete_bom)){
@@ -481,7 +493,8 @@ class Actionsremoveconf
 
         // MO
         if (strpos($parameters['context'], 'mocard') !== false){
-            dol_syslog(get_class($this).'::Context = mocard', LOG_DEBUG, 1 , '', '');
+            
+			dol_syslog(get_class($this).'::Context = mocard', LOG_DEBUG, 1 , '', '');
 
             //MO Delete
             if (($action == 'delete') && ($user->rights->removeconf->delete_mo)){
@@ -525,6 +538,75 @@ class Actionsremoveconf
                 $action_confirm = 'confirm_deleteline';
                 dol_syslog(get_class($this).'::action = deleteline', LOG_DEBUG, 1 , '', '');
             }
+        }
+
+        // Purchase order
+        if (strpos($parameters['context'], 'ordersuppliercard') !== false){
+        	
+			dol_syslog(get_class($this).'::Context = ordersuppliercard', LOG_DEBUG, 1 , '', '');
+
+        	// Purchase order Delete
+        	if (($action == 'delete') && ($user->rights->removeconf->delete_purchase_order)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+        		$action_confirm = 'confirm_delete';
+        		dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+        	}
+        	// Purchase order validate and approve
+        	if (($action == 'valid') && ($user->rights->removeconf->validate_purchase_order)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+        		$action_confirm = 'confirm_valid';
+        		dol_syslog(get_class($this).'::action = valid', LOG_DEBUG, 1 , '', '');
+        	}
+			// Purchase order approve
+        	if (($action == 'approve' || $action == 'approve2') && ($user->rights->removeconf->approve_purchase_order)){
+				$qualified_for_stock_change = 0;
+				if (empty($conf->global->STOCK_SUPPORTS_SERVICES))					{
+					$qualified_for_stock_change=$object->hasProductsOrServices(2);
+				}else{
+					$qualified_for_stock_change=$object->hasProductsOrServices(1);
+				}
+
+				if (isModEnabled('stock') && !empty($conf->global->STOCK_CALCULATE_ON_SUPPLIER_VALIDATE_ORDER) && $qualified_for_stock_change)
+				{
+					require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
+					$warehouse = new Entrepot($this->db);
+					$warehouse_array = $warehouse->list_array();
+					if (count($warehouse_array) == 1) {
+						$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&idwarehouse=' . key($warehouse_array);
+						$this->results = true;
+						$action_confirm = "confirm_".$action;
+						dol_syslog(get_class($this).'::action = '.$action, LOG_DEBUG, 1 , '', '');
+					}
+				}else{
+					$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id ;
+					$this->results = true;
+					$action_confirm = "confirm_".$action;
+					dol_syslog(get_class($this).'::action = '.$action, LOG_DEBUG, 1 , '', '');
+				}
+			}			
+        	// Purchase order refuse
+        	if (($action == 'refuse') && ($user->rights->removeconf->refuse_purchase_order)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+        		$action_confirm = 'confirm_refuse';
+        		dol_syslog(get_class($this).'::action = refuse', LOG_DEBUG, 1 , '', '');
+        	}
+        	// Purchase order cancel
+        	if (($action == 'cancel') && ($user->rights->removeconf->cancel_purchase_order)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+        		$action_confirm = 'confirm_cancel';
+        		dol_syslog(get_class($this).'::action = cancel', LOG_DEBUG, 1 , '', '');
+        	}
+        	// Purchase order delete line
+        	if (($action == 'ask_deleteline') && ($user->rights->removeconf->delete_purchase_order_line)){
+        		$this->results = true;
+        		$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid'];
+        		$action_confirm = 'confirm_deleteline';
+        		dol_syslog(get_class($this).'::action = deleteline', LOG_DEBUG, 1 , '', '');
+        	}
         }
 
 		if (! $error) {

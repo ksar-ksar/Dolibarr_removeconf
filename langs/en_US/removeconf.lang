@@ -28,7 +28,7 @@ ModuleremoveconfDesc = Allows administrators to remove some confirmation pop-up 
 #
 About = About
 removeconfAbout = About remove confirmation pop-up
-removeconfAboutPage = Module that allows administrators to remove some confirmation pop-up.<br /> By default nothing is removed, need to activate removal in user permissions
+removeconfAboutPage = Module that allows administrators to remove some confirmation pop-up.<br /> By default nothing is removed, need to activate removal in user permissions <br /> Initial idea module done by ksar, enhanced by the Dolibarr community <3
 ForAnyQuestions = If you have any question please send an email to 
 
 #
@@ -71,4 +71,9 @@ Permission20730034 = Clone MO without confirmation
 Permission20730035 = Back to draft MO without confirmation
 Permission20730036 = Reopen MO without confirmation
 Permission20730037 = Delete MO line without confirmation
-
+Permission20730038 = Delete purchase order without confirmation
+Permission20730039 = Validate and approve purchase order without confirmation
+Permission20730040 = Approve purchase order without confirmationn<br/> <b style="color: red">WARNING : When using several warehouses, the confirmation form will show</b>
+Permission20730041 = Refuse purchase order without confirmation
+Permission20730042 = Cancel purchase order without confirmation
+Permission20730043 = Delete a purchase order line without confirmation

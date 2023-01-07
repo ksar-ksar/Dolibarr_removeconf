@@ -27,7 +27,7 @@ ModuleremoveconfDesc = Permet à l'administrateur de désactiver certains pop-up
 #
 About = À propos
 removeconfAbout = À propos du module enlever les pop-up de confirmation 
-removeconfAboutPage = Permet à l'administrateur de désactiver certains pop-up de confirmation pour les utilisateurs. <br />Par défaut, aucuns pop-ups n'est supprimé, il faut activer la suppression dans les permissions des utilisateurs.
+removeconfAboutPage = Permet à l'administrateur de désactiver certains pop-up de confirmation pour les utilisateurs. <br />Par défaut, aucuns pop-ups n'est supprimé, il faut activer la suppression dans les permissions des utilisateurs. <br /> Module original crée par ksar, ammélioré par la communautée Dolibarr <3
 ForAnyQuestions = Si vous avez des question, envoyer un email à 
 
 #
@@ -70,3 +70,9 @@ Permission20730034 = Cloner les ordres de fabrication sans confirmation
 Permission20730035 = Retour au brouillon pour les ordres de fabrication sans confirmation
 Permission20730036 = Rouvrir les ordres de fabrication sans confirmation
 Permission20730037 = Supprimer les lignes des ordres de fabrication sans confirmation
+Permission20730038 = Supprimer les commandes fournisseurs sans confirmation
+Permission20730039 = Valider et approuver les commandes fournisseurs sans confirmation
+Permission20730040 = Approuver les commandes fournisseurs sans confirmation
+Permission20730041 = Refuse les commandes fournisseurs sans confirmation
+Permission20730042 = Annuler les commandes fournisseurs sans confirmation
+Permission20730043 = Supprimer les lignes des commandes fournisseurs sans confirmation

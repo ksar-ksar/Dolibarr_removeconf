@@ -1,6 +1,6 @@
 <?php
 /* Copyright (C) 2004-2018 Laurent Destailleur  <eldy@users.sourceforge.net>
- * Copyright (C) 2018-2021 ksar <ksar.ksar@gmail.com>
+ * Copyright (C) 2018-2023 ksar <ksar.ksar@gmail.com>
  * Copyright (C) 2020-2020 akene <allo@iouston.com>
  * Copyright (C) 2021-2021 Erik van Berkum <erikvanberkum@gmail.com>
  *
@@ -67,7 +67,7 @@ class modremoveconf extends DolibarrModules
 		$this->editor_url = 'https://github.com/ksar-ksar/';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
-		$this->version = '2.1.0';
+		$this->version = '2.2.0';
 
 		// Url to the file with your last number version of this module
 		$this->url_last_version = 'https://raw.githubusercontent.com/ksar-ksar/Dolibarr_removeconf/master/version.txt';
@@ -92,7 +92,7 @@ class modremoveconf extends DolibarrModules
 		$this->requiredby = array();	// List of module ids to disable if this one is disabled
 		$this->conflictwith = array();	// List of module class names as string this module is in conflict with
 		$this->langfiles = array("removeconf@removeconf");
-		$this->phpmin = array(5,3);					// Minimum version of PHP required by module
+		$this->phpmin = array(5,4);					// Minimum version of PHP required by module
 		$this->need_dolibarr_version = array(9,0);	// Minimum version of Dolibarr required by module
 		$this->warnings_activation = array();                     // Warning to show when we activate module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
 		$this->warnings_activation_ext = array();                 // Warning to show when we activate an external module. array('always'='text') or array('FR'='textfr','ES'='textes'...)
@@ -384,6 +384,49 @@ class modremoveconf extends DolibarrModules
 		$this->rights[$r][3] = 0;
 		$this->rights[$r][4] = 'delete_mo_line';
 		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730038;
+		$this->rights[$r][1] = 'Delete purchase order without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_purchase_order';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730039;
+		$this->rights[$r][1] = 'Validate and approve purchase order without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'validate_purchase_order';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730040;
+		$this->rights[$r][1] = 'Approve purchase order without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'approve_purchase_order';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730041;
+		$this->rights[$r][1] = 'Refuse purchase order without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'refuse_purchase_order';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730042;
+		$this->rights[$r][1] = 'Cancel purchase order without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'cancel_purchase_order';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730043;
+		$this->rights[$r][1] = 'Delete a purchase order line without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_purchase_order_line';
+		$this->rights[$r][5] = '';
+		$r++;
 
 		// Main menu entries
 		$this->menu = array();			// List of menus to add
