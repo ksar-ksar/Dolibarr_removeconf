@@ -426,6 +426,7 @@ class modremoveconf extends DolibarrModules
 		$this->rights[$r][3] = 0;
 		$this->rights[$r][4] = 'delete_purchase_order_line';
 		$this->rights[$r][5] = '';
+        $r++;
         $this->rights[$r][0] = 20730044;
         $this->rights[$r][1] = 'Validate quotes without confirmation';
         $this->rights[$r][2] = 'r';
