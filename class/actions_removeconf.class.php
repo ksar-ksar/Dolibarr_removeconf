@@ -184,6 +184,14 @@ class Actionsremoveconf
 				$action_confirm = 'confirm_deleteline';
 				dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
 			}
+            
+            //Validate
+            if (($action == 'validate') && ($user->rights->removeconf->validate_propal)) {
+                $page = $_SERVER["PHP_SELF"] . '?id=' . $object->id ;
+                $this->results = true;
+                $action_confirm = 'confirm_validate';
+                dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
+            }
 		}
 
 		//Commande
