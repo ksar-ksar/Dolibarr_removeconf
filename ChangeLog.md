@@ -1,4 +1,7 @@
 # CHANGELOG REMOVECONF FOR <a href="https://www.dolibarr.org">DOLIBARR ERP CRM</a>
+## 2.2.1
+Added spanish translation
+
 ## 2.2.0
 New Suppress Supplier Order confirmation pop-ups
 

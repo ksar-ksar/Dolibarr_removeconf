@@ -67,7 +67,7 @@ class modremoveconf extends DolibarrModules
 		$this->editor_url = 'https://github.com/ksar-ksar/';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
-		$this->version = '2.2.0';
+		$this->version = '2.2.1';
 
 		// Url to the file with your last number version of this module
 		$this->url_last_version = 'https://raw.githubusercontent.com/ksar-ksar/Dolibarr_removeconf/master/version.txt';
