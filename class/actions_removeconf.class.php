@@ -154,7 +154,7 @@ class Actionsremoveconf
 
 		$error = 0; // Error counter
 
-	   dol_syslog(get_class($this).'::executeHooks action='.$action);
+		dol_syslog(get_class($this).'::executeHooks action='.$action);
 
 		//Propal
 		if (strpos($parameters['context'], 'propalcard') !== false){
@@ -306,6 +306,14 @@ class Actionsremoveconf
 				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
 				$action_confirm = 'confirm_modif';
 				dol_syslog(get_class($this).'::action = modif', LOG_DEBUG, 1 , '', '');
+			}
+
+			//Modif
+			if (($action == 'paid') && ($user->rights->removeconf->paid_invoice)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_paid';
+				dol_syslog(get_class($this).'::action = paid', LOG_DEBUG, 1 , '', '');
 			}
 
 			//Shipped
@@ -608,6 +616,53 @@ class Actionsremoveconf
         		dol_syslog(get_class($this).'::action = deleteline', LOG_DEBUG, 1 , '', '');
         	}
         }
+
+		//Propal
+		if (strpos($parameters['context'], 'projectcard') !== false){
+
+			dol_syslog(get_class($this).'::Context = projectcard', LOG_DEBUG, 1 , '', '');
+
+			//Validate
+			if (($action == 'validate') && ($user->rights->removeconf->validate_project)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_validate';
+				dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
+			}
+
+			//Delete
+			if (($action == 'delete') && ($user->rights->removeconf->delete_project)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_delete';
+				dol_syslog(get_class($this).'::action = delete', LOG_DEBUG, 1 , '', '');
+			}
+
+			//Reopen
+			if (($action == 'reopen') && ($user->rights->removeconf->reopen_project)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_reopen';
+				dol_syslog(get_class($this).'::action = reopen', LOG_DEBUG, 1 , '', '');
+			}
+
+			//Close
+			if (($action == 'close') && ($user->rights->removeconf->close_project)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_close';
+				dol_syslog(get_class($this).'::action = close', LOG_DEBUG, 1 , '', '');
+			}
+
+			//Clone
+			if (($action == 'clone') && ($user->rights->removeconf->clone_project)){
+				$this->results = true;
+				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
+				$action_confirm = 'confirm_clone';
+				dol_syslog(get_class($this).'::action = clone', LOG_DEBUG, 1 , '', '');
+			}
+
+		}
 
 		if (! $error) {
 			if ($this->results == true){

@@ -224,6 +224,13 @@ class modremoveconf extends DolibarrModules
 		$this->rights[$r][4] = 'cancel_invoice';
         $this->rights[$r][5] = '';
         $r++;
+		$this->rights[$r][0] = 20730044;
+		$this->rights[$r][1] = 'Classer les factures comme payées';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'paid_invoice';
+        $this->rights[$r][5] = '';
+        $r++;
 		$this->rights[$r][0] = 20730015;
 		$this->rights[$r][1] = 'Supprimer les lignes de facture sans confirmation';
 		$this->rights[$r][2] = 'r';
@@ -428,6 +435,41 @@ class modremoveconf extends DolibarrModules
 		$this->rights[$r][5] = '';
 		$r++;
 
+		$this->rights[$r][0] = 20730045;
+		$this->rights[$r][1] = 'Validate a project without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'validate_project';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730046;
+		$this->rights[$r][1] = 'Delete a project without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_project';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730047;
+		$this->rights[$r][1] = 'Reopen a project without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'reopen_project';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730048;
+		$this->rights[$r][1] = 'Close a project without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'close_project';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730049;
+		$this->rights[$r][1] = 'Clone a project without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'clone_project';
+		$this->rights[$r][5] = '';
+		$r++;
 		// Main menu entries
 		$this->menu = array();			// List of menus to add
 	}

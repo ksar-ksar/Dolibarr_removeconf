@@ -50,6 +50,7 @@ Permission20730011 = Validate Invoice without confirmation <br> WARNING : When u
 Permission20730012 = Modify validated Invoice without confirmation
 Permission20730013 = Ship Invoice without confirmation
 Permission20730014 = Cancel Invoice without confirmation
+Permission20730044 = Classify Invoice as PAID without confirmation
 Permission20730015 = Delete Invoice Line without confirmation
 Permission20730016 = Delete Shipment without confirmation
 Permission20730017 = Validate Shipment without confirmation
@@ -79,3 +80,9 @@ Permission20730040 = Approve purchase order without confirmationn <br> WARNING :
 Permission20730041 = Refuse purchase order without confirmation
 Permission20730042 = Cancel purchase order without confirmation
 Permission20730043 = Delete a purchase order line without confirmation
+Permission20730045 = Validate Project without confirmation
+Permission20730046 = Delete Project without confirmation
+Permission20730047 = Reopen Project without confirmation
+Permission20730048 = Close Project without confirmation
+Permission20730049 = Clone Project without confirmation
+
