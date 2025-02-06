@@ -617,7 +617,7 @@ class Actionsremoveconf
         	}
         }
 
-		//Propal
+		//Project
 		if (strpos($parameters['context'], 'projectcard') !== false){
 
 			dol_syslog(get_class($this).'::Context = projectcard', LOG_DEBUG, 1 , '', '');
