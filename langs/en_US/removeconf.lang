@@ -79,4 +79,4 @@ Permission20730040 = Approve purchase order without confirmationn <br> <b>WARNIN
 Permission20730041 = Refuse purchase order without confirmation
 Permission20730042 = Cancel purchase order without confirmation
 Permission20730043 = Delete a purchase order line without confirmation
-Permission20730044 = Validate quotes without confirmation
+Permission20730044 = Validate Commercial proposal without confirmation

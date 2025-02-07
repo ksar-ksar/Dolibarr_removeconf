@@ -36,7 +36,7 @@
 															delete		confirm_delete		DeleteProp			$_SERVER["PHP_SELF"] . '?id=' . $object->id
 															reopen		confirm_reopen		ReOpen				$_SERVER["PHP_SELF"] . '?id=' . $object->id
 															ask_deleteline confirm_deleteline DeleteProductLine $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid']
-															validate	confirm_validate	WARNING, a lot of things to check and could have error, not possible to cancel
+															validate	confirm_validate	ValidateProp		$_SERVER["PHP_SELF"].'?id='.$object->id
 	commande\card.php 			ordercard, globalcard										CustomerOrder
 															delete		confirm_delete		DeleteOrder			$_SERVER["PHP_SELF"] . '?id=' . $object->id
 															validate	confirm_validate	ValidateOrder		$_SERVER["PHP_SELF"] . '?id=' . $object->id
