@@ -1,4 +1,7 @@
 # CHANGELOG REMOVECONF FOR <a href="https://www.dolibarr.org">DOLIBARR ERP CRM</a>
+## 2.2.1
+Add bold for warnings on permissions (proposal from Iouston #10)
+
 ## 2.2.0
 New Suppress Supplier Order confirmation pop-ups
 
