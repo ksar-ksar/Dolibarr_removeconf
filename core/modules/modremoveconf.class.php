@@ -224,7 +224,7 @@ class modremoveconf extends DolibarrModules
 		$this->rights[$r][4] = 'cancel_invoice';
         $this->rights[$r][5] = '';
         $r++;
-		$this->rights[$r][0] = 20730044;
+		$this->rights[$r][0] = 20730050;
 		$this->rights[$r][1] = 'Classer les factures comme payées';
 		$this->rights[$r][2] = 'r';
 		$this->rights[$r][3] = 0;
