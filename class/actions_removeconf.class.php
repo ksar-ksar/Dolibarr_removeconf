@@ -290,8 +290,8 @@ class Actionsremoveconf
 					$qualified_for_stock_change = $object->hasProductsOrServices(1);
 				}
 
-				if ($qualified_for_stock_change){
-					require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
+                if (isModEnabled('stock') && !empty($conf->global->STOCK_CALCULATE_ON_BILL) && $qualified_for_stock_change){
+                    require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
 					$warehouse = new Entrepot($this->db);
 					$warehouse_array = $warehouse->list_array();
 					if (count($warehouse_array) == 1) {
