@@ -308,7 +308,7 @@ class Actionsremoveconf
 				dol_syslog(get_class($this).'::action = modif', LOG_DEBUG, 1 , '', '');
 			}
 
-			//Modif
+			//Paid
 			if (($action == 'paid') && ($user->rights->removeconf->paid_invoice)){
 				$this->results = true;
 				$page = $_SERVER["PHP_SELF"] . '?id=' . $object->id;
