@@ -1,0 +1,88 @@
+# Copyright (C) 2018-2021 ksar <ksar.ksar@gmail.com>
+# Copyright (C) 2021-2021 Erik van Berkum <erikvanberkum@gmail.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+#
+# Generic
+#
+
+# Module label 'ModuleremoveconfName'
+ModuleremoveconfName = Eliminar ventanas de confirmación
+# Module description 'ModuleremoveconfDesc'
+ModuleremoveconfDesc = Permite a los administradores eliminar algunas ventanas emergentes de confirmación para los usuarios.
+
+#
+# About page
+#
+About = Acerca de
+removeconfAbout = Acerca de Eliminar ventanas de confirmación
+removeconfAboutPage = Módulo que permite a los administradores eliminar algunas ventanas emergentes de confirmación.
+removeconfAboutPage2 = Por defecto no se elimina nada, se necesita activar la eliminación en los permisos de usuario
+removeconfAboutPage3 = Idea inicial del módulo hecha por ksar, mejorada por la comunidad Dolibarr <3
+ForAnyQuestions = Si tiene alguna pregunta, por favor envíe un correo electrónico a
+
+#
+# Permissions
+#
+Permission2073001 = Propuesta Comercial - Eliminar sin confirmación
+Permission2073002 = Propuesta Comercial - Reabrir sin confirmación
+Permission2073003 = Línea de Propuesta Comercial - Eliminar sin confirmación
+Permission2073004 = Pedido - Eliminar sin confirmación
+Permission2073005 = Pedido - Validar sin confirmación <br> ADVERTENCIA: Cuando se utilizan varios almacenes, se mostrará el formulario de confirmación
+Permission2073006 = Pedido - Modificar después de validado sin confirmación
+Permission2073007 = Pedido - Enviar sin confirmación
+Permission2073008 = Pedido - Cancelar sin confirmación
+Permission2073009 = Línea de Pedido - Eliminar sin confirmación
+Permission20730010 = Factura - Eliminar sin confirmación
+Permission20730011 = Factura - Validar sin confirmación <br> ADVERTENCIA: Cuando se utilizan varios almacenes, se mostrará el formulario de confirmación
+Permission20730012 = Factura - Modificar después de validada sin confirmación
+Permission20730013 = Factura - Enviar sin confirmación
+Permission20730014 = Factura - Cancelar sin confirmación
+Permission20730050 = Factura - Clasificar como PAGADA sin confirmación
+Permission20730015 = Línea de Factura - Eliminar sin confirmación
+Permission20730016 = Envío - Eliminar sin confirmación
+Permission20730017 = Envío - Validar sin confirmación
+Permission20730018 = Envío - Cancelar sin confirmación
+Permission20730019 = Inventario - Eliminar sin confirmación
+Permission20730020 = Almacén - Eliminar sin confirmación
+Permission20730021 = Propuesta de Proveedor - Eliminar sin confirmación
+Permission20730022 = Propuesta de Proveedor - Reabrir sin confirmación
+Permission20730023 = Línea de Propuesta de Proveedor - Eliminar sin confirmación
+Permission20730024 = Cuenta Web - Eliminar sin confirmación
+Permission20730025 = Lista de Materiales - Eliminar sin confirmación
+Permission20730026 = Lista de Materiales - Clonar sin confirmación
+Permission20730027 = Lista de Materiales - Validar sin confirmación
+Permission20730028 = Lista de Materiales - Volver a borrador sin confirmación
+Permission20730029 = Lista de Materiales - Desactivar sin confirmación
+Permission20730030 = Lista de Materiales - Reabrir sin confirmación
+Permission20730031 = Línea de Lista de Materiales - Eliminar sin confirmación
+Permission20730032 = Orden de Fabricación - Eliminar sin confirmación
+Permission20730033 = Orden de Fabricación - Validar sin confirmación
+Permission20730034 = Orden de Fabricación - Clonar sin confirmación
+Permission20730035 = Orden de Fabricación - Volver a borrador sin confirmación
+Permission20730036 = Orden de Fabricación - Reabrir sin confirmación
+Permission20730037 = Línea de Orden de Fabricación - Eliminar sin confirmación
+Permission20730038 = Orden de compra - Eliminar sin confirmación
+Permission20730039 = Orden de compra - Validar y aprobar sin confirmación
+Permission20730040 = Orden de compra - Aprobar sin confirmación <br> ADVERTENCIA: Cuando se utilizan varios almacenes, se mostrará el formulario de confirmación
+Permission20730041 = Orden de compra - Rechazar sin confirmación
+Permission20730042 = Orden de compra - Cancelar sin confirmación
+Permission20730043 = Línea de orden de compra - Eliminar sin confirmación
+Permission20730044 = Propuesta Comercial - Validar sin confirmación
+Permission20730045 = Proyecto - Validar sin confirmación
+Permission20730046 = Proyecto - Eliminar sin confirmación
+Permission20730047 = Proyecto - Reabrir sin confirmación
+Permission20730048 = Proyecto - Cerrar sin confirmación
+Permission20730049 = Proyecto - Clonar sin confirmación

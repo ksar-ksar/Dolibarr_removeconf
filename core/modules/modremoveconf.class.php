@@ -67,7 +67,7 @@ class modremoveconf extends DolibarrModules
 		$this->editor_url = 'https://github.com/ksar-ksar/';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
-		$this->version = '2.2.0';
+		$this->version = '2.2.1';
 
 		// Url to the file with your last number version of this module
 		$this->url_last_version = 'https://raw.githubusercontent.com/ksar-ksar/Dolibarr_removeconf/master/version.txt';
@@ -222,6 +222,13 @@ class modremoveconf extends DolibarrModules
 		$this->rights[$r][2] = 'r';
 		$this->rights[$r][3] = 0;
 		$this->rights[$r][4] = 'cancel_invoice';
+        $this->rights[$r][5] = '';
+        $r++;
+		$this->rights[$r][0] = 20730050;
+		$this->rights[$r][1] = 'Classer les factures comme payées';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'paid_invoice';
         $this->rights[$r][5] = '';
         $r++;
 		$this->rights[$r][0] = 20730015;
@@ -435,6 +442,41 @@ class modremoveconf extends DolibarrModules
         $this->rights[$r][5] = '';
 		$r++;
 
+		$this->rights[$r][0] = 20730045;
+		$this->rights[$r][1] = 'Validate a project without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'validate_project';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730046;
+		$this->rights[$r][1] = 'Delete a project without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'delete_project';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730047;
+		$this->rights[$r][1] = 'Reopen a project without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'reopen_project';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730048;
+		$this->rights[$r][1] = 'Close a project without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'close_project';
+		$this->rights[$r][5] = '';
+		$r++;
+		$this->rights[$r][0] = 20730049;
+		$this->rights[$r][1] = 'Clone a project without confirmation';
+		$this->rights[$r][2] = 'r';
+		$this->rights[$r][3] = 0;
+		$this->rights[$r][4] = 'clone_project';
+		$this->rights[$r][5] = '';
+		$r++;
 		// Main menu entries
 		$this->menu = array();			// List of menus to add
 	}

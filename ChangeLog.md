@@ -3,6 +3,9 @@
 NEW #10 : Add bold for warnings on permissions (proposal from Iouston)
 FIX #11 : Configuration for stock on invoice Validation
 NEW #12 : Remove confirmation for the Proposal Validation
+NEW #13 : Added spanish translation
+NEW #13 : New Customer Invoice Paid confirmation pop-ups
+NEW #13 : New Project Validate/Delete/Reopen/CLose/Clone confirmation pop-ups
 
 ## 2.2.0
 New Suppress Supplier Order confirmation pop-ups
