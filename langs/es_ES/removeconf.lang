@@ -80,6 +80,7 @@ Permission20730040 = Orden de compra - Aprobar sin confirmación <br> ADVERTENCI
 Permission20730041 = Orden de compra - Rechazar sin confirmación
 Permission20730042 = Orden de compra - Cancelar sin confirmación
 Permission20730043 = Línea de orden de compra - Eliminar sin confirmación
+Permission20730044 = Propuesta Comercial - Validar sin confirmación
 Permission20730045 = Proyecto - Validar sin confirmación
 Permission20730046 = Proyecto - Eliminar sin confirmación
 Permission20730047 = Proyecto - Reabrir sin confirmación
