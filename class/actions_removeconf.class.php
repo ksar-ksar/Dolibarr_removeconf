@@ -36,7 +36,7 @@
 															delete		confirm_delete		DeleteProp			$_SERVER["PHP_SELF"] . '?id=' . $object->id
 															reopen		confirm_reopen		ReOpen				$_SERVER["PHP_SELF"] . '?id=' . $object->id
 															ask_deleteline confirm_deleteline DeleteProductLine $_SERVER["PHP_SELF"] . '?id=' . $object->id . '&lineid=' . $parameters['lineid']
-															validate	confirm_validate	WARNING, a lot of things to check and could have error, not possible to cancel
+															validate	confirm_validate	ValidateProp		$_SERVER["PHP_SELF"].'?id='.$object->id
 	commande\card.php 			ordercard, globalcard										CustomerOrder
 															delete		confirm_delete		DeleteOrder			$_SERVER["PHP_SELF"] . '?id=' . $object->id
 															validate	confirm_validate	ValidateOrder		$_SERVER["PHP_SELF"] . '?id=' . $object->id
@@ -184,6 +184,14 @@ class Actionsremoveconf
 				$action_confirm = 'confirm_deleteline';
 				dol_syslog(get_class($this).'::action = ask_deleteline', LOG_DEBUG, 1 , '', '');
 			}
+            
+            //Validate
+            if (($action == 'validate') && ($user->rights->removeconf->validate_propal)) {
+                $page = $_SERVER["PHP_SELF"] . '?id=' . $object->id ;
+                $this->results = true;
+                $action_confirm = 'confirm_validate';
+                dol_syslog(get_class($this).'::action = validate', LOG_DEBUG, 1 , '', '');
+            }
 		}
 
 		//Commande
@@ -282,8 +290,8 @@ class Actionsremoveconf
 					$qualified_for_stock_change = $object->hasProductsOrServices(1);
 				}
 
-				if ($qualified_for_stock_change){
-					require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
+                if (isModEnabled('stock') && !empty($conf->global->STOCK_CALCULATE_ON_BILL) && $qualified_for_stock_change){
+                    require_once DOL_DOCUMENT_ROOT . '/product/stock/class/entrepot.class.php';
 					$warehouse = new Entrepot($this->db);
 					$warehouse_array = $warehouse->list_array();
 					if (count($warehouse_array) == 1) {
