@@ -9,8 +9,6 @@ Initial idea module done by ksar, enhanced by the Dolibarr community <3
 
 Other modules are available on <a href="https://www.dolistore.com" target="_new">Dolistore.com</a>.
 
-
-
 ### Translations
 
 Translations can be define manually by editing files into directories [langs](langs). 
@@ -20,35 +18,9 @@ Install
 
 ### From the ZIP file and GUI interface
 
-- If you get the module in a zip file (like when downloading it from the marketplace [Dolistore](https://www.dolistore.com)), go into
+The module is a zip file (like when downloading it from the marketplace [Dolistore](https://www.dolistore.com)), go into
 menu ```Home - Setup - Modules - Deploy external module``` and upload the zip file.
-
-
-Note: If this screen tell you there is no custom directory, check your setup is correct: 
-
-- In your Dolibarr installation directory, edit the ```htdocs/conf/conf.php``` file and check that following lines are not commented:
-
-    ```php
-    //$dolibarr_main_url_root_alt ...
-    //$dolibarr_main_document_root_alt ...
-    ```
-
-- Uncomment them if necessary (delete the leading ```//```) and assign a sensible value according to your Dolibarr installation
-
-    For example :
-
-    - UNIX:
-        ```php
-        $dolibarr_main_url_root_alt = '/custom';
-        $dolibarr_main_document_root_alt = '/var/www/Dolibarr/htdocs/custom';
-        ```
-
-    - Windows:
-        ```php
-        $dolibarr_main_url_root_alt = '/custom';
-        $dolibarr_main_document_root_alt = 'C:/My Web Sites/Dolibarr/htdocs/custom';
-        ```
-        
+     
 ### From a GIT repository
 
 - Clone the repository in ```$dolibarr_main_document_root_alt/removeconf```
@@ -76,6 +48,13 @@ Licenses
 GPLv3 or (at your option) any later version.
 
 See [COPYING](COPYING) for more information.
+
+## Contributions
+<a href="https://github.com/ksar-ksar/Dolibarr_removeconf/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ksar-ksar/Dolibarr_removeconf" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
 
 #### Documentation
 
